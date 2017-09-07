@@ -1,0 +1,1025 @@
+ninja_required_version = 1.7.2
+
+rule gn
+  command = /data/webrtc_yeung/src/buildtools/linux64/gn --root=/data/webrtc_yeung/src -q gen .
+  description = Regenerating ninja files
+
+build build.ninja: gn
+  generator = 1
+  depfile = build.ninja.d
+
+pool build_toolchain_link_pool
+  depth = 1
+
+subninja toolchain.ninja
+
+build default: phony obj/default.stamp
+build webrtc: phony obj/webrtc/libwebrtc.a
+build aec_dump: phony obj/webrtc/modules/audio_processing/aec_dump/aec_dump.stamp
+build aec_dump_impl: phony obj/webrtc/modules/audio_processing/aec_dump/aec_dump_impl.stamp
+build aec_dump_interface: phony obj/webrtc/modules/audio_processing/aec_dump_interface.stamp
+build aec_dump_unittests: phony obj/webrtc/modules/audio_processing/aec_dump/aec_dump_unittests.stamp
+build ana_config_proto: phony obj/webrtc/modules/audio_coding/libana_config_proto.a
+build ana_config_proto_gen: phony obj/webrtc/modules/audio_coding/ana_config_proto_gen.stamp
+build ana_debug_dump_proto: phony obj/webrtc/modules/audio_coding/libana_debug_dump_proto.a
+build ana_debug_dump_proto_gen: phony obj/webrtc/modules/audio_coding/ana_debug_dump_proto_gen.stamp
+build api: phony obj/webrtc/api/api.stamp
+build array_view: phony obj/webrtc/api/array_view.stamp
+build asm_defines: phony obj/webrtc/system_wrappers/asm_defines.stamp
+build audio: phony obj/webrtc/audio/libaudio.a
+build audio_codec_mocks: phony obj/webrtc/test/audio_codec_mocks.stamp
+build audio_codecs_api: phony obj/webrtc/api/audio_codecs/audio_codecs_api.stamp
+build audio_coder: phony obj/webrtc/voice_engine/libaudio_coder.a
+build audio_coding: phony obj/webrtc/modules/audio_coding/libaudio_coding.a
+build audio_coding_module_typedefs: phony obj/webrtc/modules/audio_coding/audio_coding_module_typedefs.stamp
+build audio_conference_mixer: phony obj/webrtc/modules/audio_conference_mixer/libaudio_conference_mixer.a
+build audio_decoder_L16: phony obj/webrtc/api/audio_codecs/L16/libaudio_decoder_L16.a
+build audio_decoder_g711: phony obj/webrtc/api/audio_codecs/g711/libaudio_decoder_g711.a
+build audio_decoder_g722: phony obj/webrtc/api/audio_codecs/g722/libaudio_decoder_g722.a
+build audio_decoder_ilbc: phony obj/webrtc/api/audio_codecs/ilbc/libaudio_decoder_ilbc.a
+build audio_decoder_interface: phony obj/webrtc/modules/audio_coding/audio_decoder_interface.stamp
+build audio_decoder_isac_fix: phony obj/webrtc/api/audio_codecs/isac/libaudio_decoder_isac_fix.a
+build audio_decoder_isac_float: phony obj/webrtc/api/audio_codecs/isac/libaudio_decoder_isac_float.a
+build audio_decoder_opus: phony obj/webrtc/api/audio_codecs/opus/libaudio_decoder_opus.a
+build audio_device: phony obj/webrtc/modules/audio_device/libaudio_device.a
+build audio_encoder_L16: phony obj/webrtc/api/audio_codecs/L16/libaudio_encoder_L16.a
+build audio_encoder_g711: phony obj/webrtc/api/audio_codecs/g711/libaudio_encoder_g711.a
+build audio_encoder_g722: phony obj/webrtc/api/audio_codecs/g722/libaudio_encoder_g722.a
+build audio_encoder_g722_config: phony obj/webrtc/api/audio_codecs/g722/audio_encoder_g722_config.stamp
+build audio_encoder_ilbc: phony obj/webrtc/api/audio_codecs/ilbc/libaudio_encoder_ilbc.a
+build audio_encoder_ilbc_config: phony obj/webrtc/api/audio_codecs/ilbc/audio_encoder_ilbc_config.stamp
+build audio_encoder_interface: phony obj/webrtc/modules/audio_coding/audio_encoder_interface.stamp
+build audio_encoder_isac_fix: phony obj/webrtc/api/audio_codecs/isac/libaudio_encoder_isac_fix.a
+build audio_encoder_isac_float: phony obj/webrtc/api/audio_codecs/isac/libaudio_encoder_isac_float.a
+build audio_encoder_opus: phony obj/webrtc/api/audio_codecs/opus/audio_encoder_opus.stamp
+build audio_encoder_opus_config: phony obj/webrtc/api/audio_codecs/opus/libaudio_encoder_opus_config.a
+build audio_format_conversion: phony obj/webrtc/modules/audio_coding/libaudio_format_conversion.a
+build audio_frame_manipulator: phony obj/webrtc/modules/audio_mixer/libaudio_frame_manipulator.a
+build audio_frame_operations: phony obj/webrtc/audio/utility/libaudio_frame_operations.a
+build audio_level: phony obj/webrtc/voice_engine/libaudio_level.a
+build audio_mixer: phony obj/webrtc/modules/audio_mixer/audio_mixer.stamp
+build audio_mixer_api: phony obj/webrtc/api/audio_mixer_api.stamp
+build audio_mixer_impl: phony obj/webrtc/modules/audio_mixer/libaudio_mixer_impl.a
+build audio_network_adaptor: phony obj/webrtc/modules/audio_coding/libaudio_network_adaptor.a
+build audio_processing: phony obj/webrtc/modules/audio_processing/libaudio_processing.a
+build audio_processing_c: phony obj/webrtc/modules/audio_processing/audio_processing_c.stamp
+build audio_processing_sse2: phony obj/webrtc/modules/audio_processing/libaudio_processing_sse2.a
+build audioproc_debug_proto: phony obj/webrtc/modules/audio_processing/libaudioproc_debug_proto.a
+build audioproc_debug_proto_gen: phony obj/webrtc/modules/audio_processing/audioproc_debug_proto_gen.stamp
+build base: phony obj/webrtc/rtc_base/base.stamp
+build bitrate_controller: phony obj/webrtc/modules/bitrate_controller/libbitrate_controller.a
+build boringssl: phony obj/third_party/boringssl/libboringssl.a
+build boringssl_asm: phony obj/third_party/boringssl/boringssl_asm.stamp
+build call: phony obj/webrtc/call/libcall.a
+build call_api: phony obj/webrtc/api/call_api.stamp
+build call_interfaces: phony obj/webrtc/call/call_interfaces.stamp
+build chart_proto: phony obj/webrtc/rtc_tools/libchart_proto.a
+build chart_proto_gen: phony obj/webrtc/rtc_tools/chart_proto_gen.stamp
+build cng: phony obj/webrtc/modules/audio_coding/libcng.a
+build command_line_parser: phony obj/webrtc/rtc_tools/libcommand_line_parser.a
+build common: phony obj/third_party/openh264/common.stamp
+build common_audio: phony obj/webrtc/common_audio/libcommon_audio.a
+build common_audio_c: phony obj/webrtc/common_audio/common_audio_c.stamp
+build common_audio_c_arm_asm: phony obj/webrtc/common_audio/common_audio_c_arm_asm.stamp
+build common_audio_cc: phony obj/webrtc/common_audio/common_audio_cc.stamp
+build common_audio_sse2: phony obj/webrtc/common_audio/libcommon_audio_sse2.a
+build common_video: phony obj/webrtc/common_video/libcommon_video.a
+build compile_assert_c: phony obj/webrtc/rtc_base/compile_assert_c.stamp
+build compile_gperf: phony obj/third_party/yasm/compile_gperf.stamp
+build compile_gperf_for_include: phony obj/third_party/yasm/compile_gperf_for_include.stamp
+build compile_nasm_macros: phony obj/third_party/yasm/compile_nasm_macros.stamp
+build compile_nasm_version: phony obj/third_party/yasm/compile_nasm_version.stamp
+build compile_re2c: phony obj/third_party/yasm/compile_re2c.stamp
+build compile_re2c_lc3b: phony obj/third_party/yasm/compile_re2c_lc3b.stamp
+build compile_win64_gas: phony obj/third_party/yasm/compile_win64_gas.stamp
+build compile_win64_nasm: phony obj/third_party/yasm/compile_win64_nasm.stamp
+build congestion_controller: phony obj/webrtc/modules/congestion_controller/libcongestion_controller.a
+build copy_google: phony obj/third_party/protobuf/copy_google.stamp
+build copy_google_protobuf: phony obj/third_party/protobuf/copy_google_protobuf.stamp
+build copy_google_protobuf_internal: phony obj/third_party/protobuf/copy_google_protobuf_internal.stamp
+build copy_six: phony obj/third_party/protobuf/copy_six.stamp
+build cpu_features_api: phony obj/webrtc/system_wrappers/cpu_features_api.stamp
+build cpu_features_linux: phony obj/webrtc/system_wrappers/libcpu_features_linux.a
+build create_pc_factory: phony obj/webrtc/pc/libcreate_pc_factory.a
+build default_exe_manifest: phony obj/build/win/default_exe_manifest.stamp
+build denoiser_filter: phony obj/webrtc/modules/video_processing/denoiser_filter.stamp
+build deps: phony obj/build/config/sanitizers/deps.stamp
+build desktop_capture: phony obj/webrtc/modules/desktop_capture/desktop_capture.stamp
+build desktop_capture_differ_sse2: phony obj/webrtc/modules/desktop_capture/libdesktop_capture_differ_sse2.a
+build desktop_capture_generic: phony obj/webrtc/modules/desktop_capture/libdesktop_capture_generic.a
+build direct_transport: phony obj/webrtc/test/direct_transport.stamp
+build dl: phony obj/third_party/openmax_dl/dl/libdl.a
+build encoder: phony obj/third_party/openh264/encoder.stamp
+build event_log_visualizer_utils: phony obj/webrtc/rtc_tools/libevent_log_visualizer_utils.a
+build examples: phony obj/webrtc/examples/examples.stamp
+build exe_and_shlib_deps: phony obj/build/config/exe_and_shlib_deps.stamp
+build fake_audio_device: phony obj/webrtc/test/fake_audio_device.stamp
+build fec_test_helper: phony obj/webrtc/modules/rtp_rtcp/fec_test_helper.stamp
+build ffmpeg: phony obj/third_party/ffmpeg/ffmpeg.stamp
+build ffmpeg_features: phony obj/third_party/ffmpeg/ffmpeg_features.stamp
+build ffmpeg_internal: phony obj/third_party/ffmpeg/libffmpeg_internal.a
+build ffmpeg_yasm: phony obj/third_party/ffmpeg/libffmpeg_yasm.a
+build ffmpeg_yasm_action: phony obj/third_party/ffmpeg/ffmpeg_yasm_action.stamp
+build field_trial: phony obj/webrtc/test/field_trial.stamp
+build field_trial_api: phony obj/webrtc/system_wrappers/field_trial_api.stamp
+build field_trial_default: phony obj/webrtc/system_wrappers/libfield_trial_default.a
+build file_player: phony obj/webrtc/voice_engine/libfile_player.a
+build file_recorder: phony obj/webrtc/voice_engine/libfile_recorder.a
+build fileutils: phony obj/webrtc/test/fileutils.stamp
+build fileutils_unittests: phony obj/webrtc/test/fileutils_unittests.stamp
+build frame_editing_lib: phony obj/webrtc/rtc_tools/libframe_editing_lib.a
+build g711: phony obj/webrtc/modules/audio_coding/libg711.a
+build g711_c: phony obj/webrtc/modules/audio_coding/g711_c.stamp
+build g722: phony obj/webrtc/modules/audio_coding/libg722.a
+build g722_c: phony obj/webrtc/modules/audio_coding/g722_c.stamp
+build generate_license: phony obj/third_party/yasm/generate_license.stamp
+build generate_module: phony obj/third_party/yasm/generate_module.stamp
+build generate_version: phony obj/third_party/yasm/generate_version.stamp
+build gflags: phony obj/third_party/gflags/gflags.stamp
+build gtest_prod: phony obj/webrtc/rtc_base/gtest_prod.stamp
+build gtk: phony obj/build/config/linux/gtk/gtk.stamp
+build gtk3: phony obj/build/config/linux/gtk3/gtk3.stamp
+build gtkprint3: phony obj/build/config/linux/gtk3/gtkprint3.stamp
+build ilbc: phony obj/webrtc/modules/audio_coding/libilbc.a
+build ilbc_c: phony obj/webrtc/modules/audio_coding/ilbc_c.stamp
+build isac: phony obj/webrtc/modules/audio_coding/libisac.a
+build isac_c: phony obj/webrtc/modules/audio_coding/libisac_c.a
+build isac_common: phony obj/webrtc/modules/audio_coding/libisac_common.a
+build isac_fix: phony obj/webrtc/modules/audio_coding/libisac_fix.a
+build isac_fix_c: phony obj/webrtc/modules/audio_coding/isac_fix_c.stamp
+build isac_fix_c_arm_asm: phony obj/webrtc/modules/audio_coding/isac_fix_c_arm_asm.stamp
+build isac_fix_common: phony obj/webrtc/modules/audio_coding/isac_fix_common.stamp
+build jpeg: phony obj/third_party/jpeg.stamp
+build jpeg_includes: phony obj/third_party/jpeg_includes.stamp
+build jsoncpp: phony obj/third_party/jsoncpp/jsoncpp.stamp
+build legacy_encoded_audio_frame: phony obj/webrtc/modules/audio_coding/liblegacy_encoded_audio_frame.a
+build libevent: phony obj/base/third_party/libevent/libevent.a
+build libjingle_peerconnection_api: phony obj/webrtc/api/libjingle_peerconnection_api.a
+build libjingle_peerconnection_test_api: phony obj/webrtc/api/libjingle_peerconnection_test_api.stamp
+build libjpeg: phony obj/third_party/libjpeg_turbo/libjpeg.a
+build libsrtp: phony obj/third_party/libsrtp/libsrtp.a
+build libstunprober: phony obj/webrtc/p2p/libstunprober.a
+build libvpx: phony obj/third_party/libvpx/libvpx.a
+build libvpx_intrinsics_avx: phony obj/third_party/libvpx/libvpx_intrinsics_avx.stamp
+build libvpx_intrinsics_avx2: phony obj/third_party/libvpx/libvpx_intrinsics_avx2.stamp
+build libvpx_intrinsics_mmx: phony obj/third_party/libvpx/libvpx_intrinsics_mmx.stamp
+build libvpx_intrinsics_sse2: phony obj/third_party/libvpx/libvpx_intrinsics_sse2.stamp
+build libvpx_intrinsics_sse4_1: phony obj/third_party/libvpx/libvpx_intrinsics_sse4_1.stamp
+build libvpx_intrinsics_ssse3: phony obj/third_party/libvpx/libvpx_intrinsics_ssse3.stamp
+build libvpx_yasm: phony obj/third_party/libvpx/libvpx_yasm.a
+build libvpx_yasm_action: phony obj/third_party/libvpx/libvpx_yasm_action.stamp
+build libyuv: phony obj/third_party/libyuv/libyuv.stamp
+build libyuv_internal: phony obj/third_party/libyuv/libyuv_internal.a
+build linux: phony obj/build/config/linux/linux.stamp
+build logging: phony obj/webrtc/logging/logging.stamp
+build mac_portaudio: phony obj/webrtc/modules/audio_device/mac_portaudio.stamp
+build media: phony obj/webrtc/media/media.stamp
+build media_file: phony obj/webrtc/modules/media_file/libmedia_file.a
+build metrics_api: phony obj/webrtc/system_wrappers/metrics_api.stamp
+build metrics_default: phony obj/webrtc/system_wrappers/libmetrics_default.a
+build mock_aec_dump: phony obj/webrtc/modules/audio_processing/aec_dump/mock_aec_dump.stamp
+build mock_aec_dump_unittests: phony obj/webrtc/modules/audio_processing/aec_dump/mock_aec_dump_unittests.stamp
+build mock_audio_device: phony obj/webrtc/modules/audio_device/mock_audio_device.stamp
+build mock_process_thread: phony obj/webrtc/modules/utility/mock_process_thread.stamp
+build mock_rtp_rtcp: phony obj/webrtc/modules/rtp_rtcp/mock_rtp_rtcp.stamp
+build module_api: phony obj/webrtc/modules/module_api.stamp
+build modules: phony obj/webrtc/modules/modules.stamp
+build neteq: phony obj/webrtc/modules/audio_coding/libneteq.a
+build neteq_decoder_enum: phony obj/webrtc/modules/audio_coding/neteq_decoder_enum.stamp
+build neteq_test_tools: phony obj/webrtc/modules/audio_coding/neteq_test_tools.stamp
+build neteq_tools: phony obj/webrtc/modules/audio_coding/neteq_tools.stamp
+build neteq_tools_minimal: phony obj/webrtc/modules/audio_coding/neteq_tools_minimal.stamp
+build null_aec_dump_factory: phony obj/webrtc/modules/audio_processing/aec_dump/null_aec_dump_factory.stamp
+build openh264_common_yasm: phony obj/third_party/openh264/libopenh264_common_yasm.a
+build openh264_common_yasm_action: phony obj/third_party/openh264/openh264_common_yasm_action.stamp
+build openh264_encoder_yasm: phony obj/third_party/openh264/libopenh264_encoder_yasm.a
+build openh264_encoder_yasm_action: phony obj/third_party/openh264/openh264_encoder_yasm_action.stamp
+build openh264_processing_yasm: phony obj/third_party/openh264/libopenh264_processing_yasm.a
+build openh264_processing_yasm_action: phony obj/third_party/openh264/openh264_processing_yasm_action.stamp
+build options_sources: phony obj/build/config/sanitizers/liboptions_sources.a
+build opus: phony obj/third_party/opus/libopus.a
+build ortc: phony obj/webrtc/ortc/libortc.a
+build ortc_api: phony obj/webrtc/api/ortc_api.stamp
+build p2p: phony obj/webrtc/p2p/p2p.stamp
+build pacing: phony obj/webrtc/modules/pacing/libpacing.a
+build pc: phony obj/webrtc/pc/pc.stamp
+build pcm16b: phony obj/webrtc/modules/audio_coding/libpcm16b.a
+build pcm16b_c: phony obj/webrtc/modules/audio_coding/pcm16b_c.stamp
+build peerconnection: phony obj/webrtc/pc/libpeerconnection.a
+build posix: phony obj/build/config/posix/posix.stamp
+build primitives: phony obj/webrtc/modules/desktop_capture/libprimitives.a
+build processing: phony obj/third_party/openh264/processing.stamp
+build protobuf_full: phony obj/third_party/protobuf/libprotobuf_full.a
+build protobuf_lite: phony obj/third_party/protobuf/libprotobuf_lite.a
+build protobuf_utils: phony obj/webrtc/rtc_base/protobuf_utils.stamp
+build protoc_lib: phony obj/third_party/protobuf/libprotoc_lib.a
+build py_proto: phony obj/third_party/protobuf/py_proto.stamp
+build red: phony obj/webrtc/modules/audio_coding/libred.a
+build reference_less_video_analysis_lib: phony obj/webrtc/rtc_tools/libreference_less_video_analysis_lib.a
+build remote_bitrate_estimator: phony obj/webrtc/modules/remote_bitrate_estimator/libremote_bitrate_estimator.a
+build rent_a_codec: phony obj/webrtc/modules/audio_coding/librent_a_codec.a
+build rtc_audio_video: phony obj/webrtc/media/librtc_audio_video.a
+build rtc_base: phony obj/webrtc/rtc_base/librtc_base.a
+build rtc_base_approved: phony obj/webrtc/rtc_base/librtc_base_approved.a
+build rtc_base_tests_utils: phony obj/webrtc/rtc_base/rtc_base_tests_utils.stamp
+build rtc_data: phony obj/webrtc/media/librtc_data.a
+build rtc_event_log_api: phony obj/webrtc/logging/rtc_event_log_api.stamp
+build rtc_event_log_impl: phony obj/webrtc/logging/librtc_event_log_impl.a
+build rtc_event_log_parser: phony obj/webrtc/logging/librtc_event_log_parser.a
+build rtc_event_log_proto: phony obj/webrtc/logging/librtc_event_log_proto.a
+build rtc_event_log_proto_gen: phony obj/webrtc/logging/rtc_event_log_proto_gen.stamp
+build rtc_event_log_source: phony obj/webrtc/modules/audio_coding/librtc_event_log_source.a
+build rtc_h264_profile_id: phony obj/webrtc/media/rtc_h264_profile_id.stamp
+build rtc_json: phony obj/webrtc/rtc_base/rtc_json.stamp
+build rtc_media: phony obj/webrtc/media/rtc_media.stamp
+build rtc_media_base: phony obj/webrtc/media/librtc_media_base.a
+build rtc_numerics: phony obj/webrtc/rtc_base/librtc_numerics.a
+build rtc_p2p: phony obj/webrtc/p2p/librtc_p2p.a
+build rtc_pc: phony obj/webrtc/pc/rtc_pc.stamp
+build rtc_pc_base: phony obj/webrtc/pc/librtc_pc_base.a
+build rtc_stats: phony obj/webrtc/stats/librtc_stats.a
+build rtc_stats_api: phony obj/webrtc/api/rtc_stats_api.stamp
+build rtc_stats_test_utils: phony obj/webrtc/stats/rtc_stats_test_utils.stamp
+build rtc_task_queue: phony obj/webrtc/rtc_base/rtc_task_queue.stamp
+build rtc_task_queue_api: phony obj/webrtc/rtc_base/rtc_task_queue_api.stamp
+build rtc_task_queue_impl: phony obj/webrtc/rtc_base/rtc_task_queue_impl.stamp
+build rtc_tools: phony obj/webrtc/rtc_tools/rtc_tools.stamp
+build rtp_interfaces: phony obj/webrtc/call/rtp_interfaces.stamp
+build rtp_receiver: phony obj/webrtc/call/rtp_receiver.stamp
+build rtp_rtcp: phony obj/webrtc/modules/rtp_rtcp/librtp_rtcp.a
+build rtp_sender: phony obj/webrtc/call/rtp_sender.stamp
+build rtp_test_utils: phony obj/webrtc/test/rtp_test_utils.stamp
+build run_test: phony obj/webrtc/test/run_test.stamp
+build run_test_generic: phony obj/webrtc/test/run_test_generic.stamp
+build run_test_interface: phony obj/webrtc/test/run_test_interface.stamp
+build sdk: phony obj/webrtc/sdk/sdk.stamp
+build sequenced_task_checker: phony obj/webrtc/rtc_base/libsequenced_task_checker.a
+build simd: phony obj/third_party/libjpeg_turbo/libsimd.a
+build simd_asm: phony obj/third_party/libjpeg_turbo/libsimd_asm.a
+build simd_asm_action: phony obj/third_party/libjpeg_turbo/simd_asm_action.stamp
+build sinc_resampler: phony obj/webrtc/common_audio/sinc_resampler.stamp
+build single_threaded_task_queue: phony obj/webrtc/test/single_threaded_task_queue.stamp
+build stats: phony obj/webrtc/stats/stats.stamp
+build system_wrappers: phony obj/webrtc/system_wrappers/libsystem_wrappers.a
+build system_wrappers_default: phony obj/webrtc/system_wrappers/system_wrappers_default.stamp
+build test: phony obj/webrtc/test/test.stamp
+build test_common: phony obj/webrtc/test/test_common.stamp
+build test_main: phony obj/webrtc/test/test_main.stamp
+build test_renderer: phony obj/webrtc/test/test_renderer.stamp
+build test_renderer_generic: phony obj/webrtc/test/test_renderer_generic.stamp
+build test_support: phony obj/webrtc/test/test_support.stamp
+build test_support_test_output: phony obj/webrtc/test/test_support_test_output.stamp
+build transport_api: phony obj/webrtc/api/transport_api.stamp
+build usrsctp: phony obj/third_party/usrsctp/libusrsctp.a
+build video: phony obj/webrtc/video/libvideo.a
+build video_capture: phony obj/webrtc/modules/video_capture/libvideo_capture.a
+build video_capture_internal_impl: phony obj/webrtc/modules/video_capture/video_capture_internal_impl.stamp
+build video_capture_module: phony obj/webrtc/modules/video_capture/libvideo_capture_module.a
+build video_codecs_api: phony obj/webrtc/api/video_codecs/video_codecs_api.stamp
+build video_coding: phony obj/webrtc/modules/video_coding/libvideo_coding.a
+build video_coding_utility: phony obj/webrtc/modules/video_coding/libvideo_coding_utility.a
+build video_frame_api: phony obj/webrtc/api/video_frame_api.stamp
+build video_processing: phony obj/webrtc/modules/video_processing/libvideo_processing.a
+build video_processing_sse2: phony obj/webrtc/modules/video_processing/libvideo_processing_sse2.a
+build video_quality_analysis: phony obj/webrtc/rtc_tools/libvideo_quality_analysis.a
+build video_stream_api: phony obj/webrtc/call/video_stream_api.stamp
+build video_test_common: phony obj/webrtc/test/video_test_common.stamp
+build video_test_support: phony obj/webrtc/test/video_test_support.stamp
+build voice_engine: phony obj/webrtc/voice_engine/libvoice_engine.a
+build weak_ptr: phony obj/webrtc/rtc_base/libweak_ptr.a
+build webrtc_common: phony obj/webrtc/libwebrtc_common.a
+build webrtc_h264: phony obj/webrtc/modules/video_coding/libwebrtc_h264.a
+build webrtc_i420: phony obj/webrtc/modules/video_coding/libwebrtc_i420.a
+build webrtc_opus: phony obj/webrtc/modules/audio_coding/libwebrtc_opus.a
+build webrtc_opus_c: phony obj/webrtc/modules/audio_coding/webrtc_opus_c.stamp
+build webrtc_vp8: phony obj/webrtc/modules/video_coding/libwebrtc_vp8.a
+build webrtc_vp9: phony obj/webrtc/modules/video_coding/libwebrtc_vp9.a
+build yasm_utils: phony obj/third_party/yasm/libyasm_utils.a
+build $:default: phony obj/default.stamp
+build base/third_party/libevent$:libevent: phony obj/base/third_party/libevent/libevent.a
+build base/third_party/libevent: phony obj/base/third_party/libevent/libevent.a
+build build/config$:exe_and_shlib_deps: phony obj/build/config/exe_and_shlib_deps.stamp
+build build/config/linux$:linux: phony obj/build/config/linux/linux.stamp
+build build/config/linux: phony obj/build/config/linux/linux.stamp
+build build/config/linux/gtk$:gtk: phony obj/build/config/linux/gtk/gtk.stamp
+build build/config/linux/gtk: phony obj/build/config/linux/gtk/gtk.stamp
+build build/config/linux/gtk3$:gtk3: phony obj/build/config/linux/gtk3/gtk3.stamp
+build build/config/linux/gtk3: phony obj/build/config/linux/gtk3/gtk3.stamp
+build build/config/linux/gtk3$:gtkprint3: phony obj/build/config/linux/gtk3/gtkprint3.stamp
+build build/config/posix$:posix: phony obj/build/config/posix/posix.stamp
+build build/config/posix: phony obj/build/config/posix/posix.stamp
+build build/config/sanitizers$:deps: phony obj/build/config/sanitizers/deps.stamp
+build build/config/sanitizers$:options_sources: phony obj/build/config/sanitizers/liboptions_sources.a
+build build/win$:default_exe_manifest: phony obj/build/win/default_exe_manifest.stamp
+build testing/gmock$:gmock: phony obj/testing/gmock/gmock.stamp
+build testing/gmock: phony obj/testing/gmock/gmock.stamp
+build testing/gmock$:gmock_main: phony obj/testing/gmock/gmock_main.stamp
+build testing/gtest$:gtest: phony obj/testing/gtest/libgtest.a
+build testing/gtest: phony obj/testing/gtest/libgtest.a
+build testing/gtest$:gtest_main: phony obj/testing/gtest/gtest_main.stamp
+build third_party$:jpeg: phony obj/third_party/jpeg.stamp
+build third_party$:jpeg_includes: phony obj/third_party/jpeg_includes.stamp
+build third_party/boringssl$:boringssl: phony obj/third_party/boringssl/libboringssl.a
+build third_party/boringssl: phony obj/third_party/boringssl/libboringssl.a
+build third_party/boringssl$:boringssl_asm: phony obj/third_party/boringssl/boringssl_asm.stamp
+build third_party/boringssl$:boringssl_crypto_tests: phony ./boringssl_crypto_tests
+build third_party/boringssl$:boringssl_ssl_tests: phony ./boringssl_ssl_tests
+build third_party/ffmpeg$:ffmpeg: phony obj/third_party/ffmpeg/ffmpeg.stamp
+build third_party/ffmpeg: phony obj/third_party/ffmpeg/ffmpeg.stamp
+build third_party/ffmpeg$:ffmpeg_features: phony obj/third_party/ffmpeg/ffmpeg_features.stamp
+build third_party/ffmpeg$:ffmpeg_internal: phony obj/third_party/ffmpeg/libffmpeg_internal.a
+build third_party/ffmpeg$:ffmpeg_yasm: phony obj/third_party/ffmpeg/libffmpeg_yasm.a
+build third_party/ffmpeg$:ffmpeg_yasm_action: phony obj/third_party/ffmpeg/ffmpeg_yasm_action.stamp
+build third_party/gflags$:gflags: phony obj/third_party/gflags/gflags.stamp
+build third_party/gflags: phony obj/third_party/gflags/gflags.stamp
+build third_party/googletest$:gmock: phony obj/third_party/googletest/gmock.stamp
+build third_party/googletest$:gmock_main: phony obj/third_party/googletest/libgmock_main.a
+build third_party/googletest$:gtest: phony obj/third_party/googletest/gtest.stamp
+build third_party/googletest$:gtest_main: phony obj/third_party/googletest/gtest_main.stamp
+build third_party/jsoncpp$:jsoncpp: phony obj/third_party/jsoncpp/jsoncpp.stamp
+build third_party/jsoncpp: phony obj/third_party/jsoncpp/jsoncpp.stamp
+build third_party/libjpeg_turbo$:libjpeg: phony obj/third_party/libjpeg_turbo/libjpeg.a
+build third_party/libjpeg_turbo$:simd: phony obj/third_party/libjpeg_turbo/libsimd.a
+build third_party/libjpeg_turbo$:simd_asm: phony obj/third_party/libjpeg_turbo/libsimd_asm.a
+build third_party/libjpeg_turbo$:simd_asm_action: phony obj/third_party/libjpeg_turbo/simd_asm_action.stamp
+build third_party/libsrtp$:libsrtp: phony obj/third_party/libsrtp/libsrtp.a
+build third_party/libsrtp: phony obj/third_party/libsrtp/libsrtp.a
+build third_party/libvpx$:libvpx: phony obj/third_party/libvpx/libvpx.a
+build third_party/libvpx: phony obj/third_party/libvpx/libvpx.a
+build third_party/libvpx$:libvpx_intrinsics_avx: phony obj/third_party/libvpx/libvpx_intrinsics_avx.stamp
+build third_party/libvpx$:libvpx_intrinsics_avx2: phony obj/third_party/libvpx/libvpx_intrinsics_avx2.stamp
+build third_party/libvpx$:libvpx_intrinsics_mmx: phony obj/third_party/libvpx/libvpx_intrinsics_mmx.stamp
+build third_party/libvpx$:libvpx_intrinsics_sse2: phony obj/third_party/libvpx/libvpx_intrinsics_sse2.stamp
+build third_party/libvpx$:libvpx_intrinsics_sse4_1: phony obj/third_party/libvpx/libvpx_intrinsics_sse4_1.stamp
+build third_party/libvpx$:libvpx_intrinsics_ssse3: phony obj/third_party/libvpx/libvpx_intrinsics_ssse3.stamp
+build third_party/libvpx$:libvpx_yasm: phony obj/third_party/libvpx/libvpx_yasm.a
+build third_party/libvpx$:libvpx_yasm_action: phony obj/third_party/libvpx/libvpx_yasm_action.stamp
+build third_party/libyuv$:compare: phony ./compare
+build third_party/libyuv$:cpuid: phony ./cpuid
+build third_party/libyuv$:default: phony obj/third_party/libyuv/default.stamp
+build third_party/libyuv$:libyuv: phony obj/third_party/libyuv/libyuv.stamp
+build third_party/libyuv: phony obj/third_party/libyuv/libyuv.stamp
+build third_party/libyuv$:libyuv_internal: phony obj/third_party/libyuv/libyuv_internal.a
+build third_party/libyuv$:libyuv_unittest: phony ./libyuv_unittest
+build third_party/libyuv$:psnr: phony ./psnr
+build third_party/libyuv$:yuvconvert: phony ./yuvconvert
+build third_party/openh264$:common: phony obj/third_party/openh264/common.stamp
+build third_party/openh264$:encoder: phony obj/third_party/openh264/encoder.stamp
+build third_party/openh264$:openh264_common_yasm: phony obj/third_party/openh264/libopenh264_common_yasm.a
+build third_party/openh264$:openh264_common_yasm_action: phony obj/third_party/openh264/openh264_common_yasm_action.stamp
+build third_party/openh264$:openh264_encoder_yasm: phony obj/third_party/openh264/libopenh264_encoder_yasm.a
+build third_party/openh264$:openh264_encoder_yasm_action: phony obj/third_party/openh264/openh264_encoder_yasm_action.stamp
+build third_party/openh264$:openh264_processing_yasm: phony obj/third_party/openh264/libopenh264_processing_yasm.a
+build third_party/openh264$:openh264_processing_yasm_action: phony obj/third_party/openh264/openh264_processing_yasm_action.stamp
+build third_party/openh264$:processing: phony obj/third_party/openh264/processing.stamp
+build third_party/openmax_dl/dl$:dl: phony obj/third_party/openmax_dl/dl/libdl.a
+build third_party/openmax_dl/dl: phony obj/third_party/openmax_dl/dl/libdl.a
+build third_party/opus$:opus: phony obj/third_party/opus/libopus.a
+build third_party/opus: phony obj/third_party/opus/libopus.a
+build third_party/opus$:opus_compare: phony ./opus_compare
+build third_party/opus$:opus_demo: phony ./opus_demo
+build third_party/opus$:test_opus_api: phony ./test_opus_api
+build third_party/opus$:test_opus_decode: phony ./test_opus_decode
+build third_party/opus$:test_opus_encode: phony ./test_opus_encode
+build third_party/opus$:test_opus_padding: phony ./test_opus_padding
+build third_party/protobuf$:copy_google: phony obj/third_party/protobuf/copy_google.stamp
+build third_party/protobuf$:copy_google_protobuf: phony obj/third_party/protobuf/copy_google_protobuf.stamp
+build third_party/protobuf$:copy_google_protobuf_internal: phony obj/third_party/protobuf/copy_google_protobuf_internal.stamp
+build third_party/protobuf$:copy_six: phony obj/third_party/protobuf/copy_six.stamp
+build third_party/protobuf$:js_embed: phony ./js_embed
+build third_party/protobuf$:protobuf_full: phony obj/third_party/protobuf/libprotobuf_full.a
+build third_party/protobuf$:protobuf_lite: phony obj/third_party/protobuf/libprotobuf_lite.a
+build third_party/protobuf$:protoc: phony ./protoc
+build third_party/protobuf$:protoc_lib: phony obj/third_party/protobuf/libprotoc_lib.a
+build third_party/protobuf$:py_proto: phony obj/third_party/protobuf/py_proto.stamp
+build third_party/usrsctp$:usrsctp: phony obj/third_party/usrsctp/libusrsctp.a
+build third_party/usrsctp: phony obj/third_party/usrsctp/libusrsctp.a
+build third_party/yasm$:compile_gperf: phony obj/third_party/yasm/compile_gperf.stamp
+build third_party/yasm$:compile_gperf_for_include: phony obj/third_party/yasm/compile_gperf_for_include.stamp
+build third_party/yasm$:compile_nasm_macros: phony obj/third_party/yasm/compile_nasm_macros.stamp
+build third_party/yasm$:compile_nasm_version: phony obj/third_party/yasm/compile_nasm_version.stamp
+build third_party/yasm$:compile_re2c: phony obj/third_party/yasm/compile_re2c.stamp
+build third_party/yasm$:compile_re2c_lc3b: phony obj/third_party/yasm/compile_re2c_lc3b.stamp
+build third_party/yasm$:compile_win64_gas: phony obj/third_party/yasm/compile_win64_gas.stamp
+build third_party/yasm$:compile_win64_nasm: phony obj/third_party/yasm/compile_win64_nasm.stamp
+build third_party/yasm$:generate_license: phony obj/third_party/yasm/generate_license.stamp
+build third_party/yasm$:generate_module: phony obj/third_party/yasm/generate_module.stamp
+build third_party/yasm$:generate_version: phony obj/third_party/yasm/generate_version.stamp
+build third_party/yasm$:genmacro: phony ./genmacro
+build third_party/yasm$:genmodule: phony ./genmodule
+build third_party/yasm$:genperf: phony ./genperf
+build third_party/yasm$:genstring: phony ./genstring
+build third_party/yasm$:genversion: phony ./genversion
+build third_party/yasm$:re2c: phony ./re2c
+build third_party/yasm$:yasm: phony ./yasm
+build third_party/yasm: phony ./yasm
+build third_party/yasm$:yasm_utils: phony obj/third_party/yasm/libyasm_utils.a
+build webrtc$:webrtc: phony obj/webrtc/libwebrtc.a
+build webrtc$:webrtc_common: phony obj/webrtc/libwebrtc_common.a
+build webrtc/api$:api: phony obj/webrtc/api/api.stamp
+build webrtc/api: phony obj/webrtc/api/api.stamp
+build webrtc/api$:array_view: phony obj/webrtc/api/array_view.stamp
+build webrtc/api$:audio_mixer_api: phony obj/webrtc/api/audio_mixer_api.stamp
+build webrtc/api$:call_api: phony obj/webrtc/api/call_api.stamp
+build webrtc/api$:libjingle_peerconnection: phony obj/webrtc/api/libjingle_peerconnection.stamp
+build webrtc/api$:libjingle_peerconnection_api: phony obj/webrtc/api/libjingle_peerconnection_api.a
+build webrtc/api$:libjingle_peerconnection_test_api: phony obj/webrtc/api/libjingle_peerconnection_test_api.stamp
+build webrtc/api$:ortc_api: phony obj/webrtc/api/ortc_api.stamp
+build webrtc/api$:rtc_stats_api: phony obj/webrtc/api/rtc_stats_api.stamp
+build webrtc/api$:transport_api: phony obj/webrtc/api/transport_api.stamp
+build webrtc/api$:video_frame_api: phony obj/webrtc/api/video_frame_api.stamp
+build webrtc/api/audio_codecs$:audio_codecs_api: phony obj/webrtc/api/audio_codecs/audio_codecs_api.stamp
+build webrtc/api/audio_codecs$:builtin_audio_decoder_factory: phony obj/webrtc/api/audio_codecs/libbuiltin_audio_decoder_factory.a
+build webrtc/api/audio_codecs$:builtin_audio_encoder_factory: phony obj/webrtc/api/audio_codecs/libbuiltin_audio_encoder_factory.a
+build webrtc/api/audio_codecs/L16$:audio_decoder_L16: phony obj/webrtc/api/audio_codecs/L16/libaudio_decoder_L16.a
+build webrtc/api/audio_codecs/L16$:audio_encoder_L16: phony obj/webrtc/api/audio_codecs/L16/libaudio_encoder_L16.a
+build webrtc/api/audio_codecs/g711$:audio_decoder_g711: phony obj/webrtc/api/audio_codecs/g711/libaudio_decoder_g711.a
+build webrtc/api/audio_codecs/g711$:audio_encoder_g711: phony obj/webrtc/api/audio_codecs/g711/libaudio_encoder_g711.a
+build webrtc/api/audio_codecs/g722$:audio_decoder_g722: phony obj/webrtc/api/audio_codecs/g722/libaudio_decoder_g722.a
+build webrtc/api/audio_codecs/g722$:audio_encoder_g722: phony obj/webrtc/api/audio_codecs/g722/libaudio_encoder_g722.a
+build webrtc/api/audio_codecs/g722$:audio_encoder_g722_config: phony obj/webrtc/api/audio_codecs/g722/audio_encoder_g722_config.stamp
+build webrtc/api/audio_codecs/ilbc$:audio_decoder_ilbc: phony obj/webrtc/api/audio_codecs/ilbc/libaudio_decoder_ilbc.a
+build webrtc/api/audio_codecs/ilbc$:audio_encoder_ilbc: phony obj/webrtc/api/audio_codecs/ilbc/libaudio_encoder_ilbc.a
+build webrtc/api/audio_codecs/ilbc$:audio_encoder_ilbc_config: phony obj/webrtc/api/audio_codecs/ilbc/audio_encoder_ilbc_config.stamp
+build webrtc/api/audio_codecs/isac$:audio_decoder_isac_fix: phony obj/webrtc/api/audio_codecs/isac/libaudio_decoder_isac_fix.a
+build webrtc/api/audio_codecs/isac$:audio_decoder_isac_float: phony obj/webrtc/api/audio_codecs/isac/libaudio_decoder_isac_float.a
+build webrtc/api/audio_codecs/isac$:audio_encoder_isac_fix: phony obj/webrtc/api/audio_codecs/isac/libaudio_encoder_isac_fix.a
+build webrtc/api/audio_codecs/isac$:audio_encoder_isac_float: phony obj/webrtc/api/audio_codecs/isac/libaudio_encoder_isac_float.a
+build webrtc/api/audio_codecs/opus$:audio_decoder_opus: phony obj/webrtc/api/audio_codecs/opus/libaudio_decoder_opus.a
+build webrtc/api/audio_codecs/opus$:audio_encoder_opus: phony obj/webrtc/api/audio_codecs/opus/audio_encoder_opus.stamp
+build webrtc/api/audio_codecs/opus$:audio_encoder_opus_config: phony obj/webrtc/api/audio_codecs/opus/libaudio_encoder_opus_config.a
+build webrtc/api/video_codecs$:video_codecs_api: phony obj/webrtc/api/video_codecs/video_codecs_api.stamp
+build webrtc/audio$:audio: phony obj/webrtc/audio/libaudio.a
+build webrtc/audio: phony obj/webrtc/audio/libaudio.a
+build webrtc/audio/utility$:audio_frame_operations: phony obj/webrtc/audio/utility/libaudio_frame_operations.a
+build webrtc/audio/utility$:utility: phony obj/webrtc/audio/utility/utility.stamp
+build webrtc/audio/utility: phony obj/webrtc/audio/utility/utility.stamp
+build webrtc/call$:call: phony obj/webrtc/call/libcall.a
+build webrtc/call: phony obj/webrtc/call/libcall.a
+build webrtc/call$:call_interfaces: phony obj/webrtc/call/call_interfaces.stamp
+build webrtc/call$:rtp_interfaces: phony obj/webrtc/call/rtp_interfaces.stamp
+build webrtc/call$:rtp_receiver: phony obj/webrtc/call/rtp_receiver.stamp
+build webrtc/call$:rtp_sender: phony obj/webrtc/call/rtp_sender.stamp
+build webrtc/call$:video_stream_api: phony obj/webrtc/call/video_stream_api.stamp
+build webrtc/common_audio$:common_audio: phony obj/webrtc/common_audio/libcommon_audio.a
+build webrtc/common_audio: phony obj/webrtc/common_audio/libcommon_audio.a
+build webrtc/common_audio$:common_audio_c: phony obj/webrtc/common_audio/common_audio_c.stamp
+build webrtc/common_audio$:common_audio_c_arm_asm: phony obj/webrtc/common_audio/common_audio_c_arm_asm.stamp
+build webrtc/common_audio$:common_audio_cc: phony obj/webrtc/common_audio/common_audio_cc.stamp
+build webrtc/common_audio$:common_audio_sse2: phony obj/webrtc/common_audio/libcommon_audio_sse2.a
+build webrtc/common_audio$:sinc_resampler: phony obj/webrtc/common_audio/sinc_resampler.stamp
+build webrtc/common_video$:common_video: phony obj/webrtc/common_video/libcommon_video.a
+build webrtc/common_video: phony obj/webrtc/common_video/libcommon_video.a
+build webrtc/examples$:examples: phony obj/webrtc/examples/examples.stamp
+build webrtc/examples: phony obj/webrtc/examples/examples.stamp
+build webrtc/examples$:peerconnection_client: phony ./peerconnection_client
+build webrtc/examples$:peerconnection_server: phony ./peerconnection_server
+build webrtc/examples$:relayserver: phony ./relayserver
+build webrtc/examples$:stun_prober: phony ./stun_prober
+build webrtc/examples$:stunserver: phony ./stunserver
+build webrtc/examples$:turnserver: phony ./turnserver
+build webrtc/logging$:logging: phony obj/webrtc/logging/logging.stamp
+build webrtc/logging: phony obj/webrtc/logging/logging.stamp
+build webrtc/logging$:rtc_event_log_api: phony obj/webrtc/logging/rtc_event_log_api.stamp
+build webrtc/logging$:rtc_event_log_impl: phony obj/webrtc/logging/librtc_event_log_impl.a
+build webrtc/logging$:rtc_event_log_parser: phony obj/webrtc/logging/librtc_event_log_parser.a
+build webrtc/logging$:rtc_event_log_proto: phony obj/webrtc/logging/librtc_event_log_proto.a
+build webrtc/logging$:rtc_event_log_proto_gen: phony obj/webrtc/logging/rtc_event_log_proto_gen.stamp
+build webrtc/media$:media: phony obj/webrtc/media/media.stamp
+build webrtc/media: phony obj/webrtc/media/media.stamp
+build webrtc/media$:rtc_audio_video: phony obj/webrtc/media/librtc_audio_video.a
+build webrtc/media$:rtc_data: phony obj/webrtc/media/librtc_data.a
+build webrtc/media$:rtc_h264_profile_id: phony obj/webrtc/media/rtc_h264_profile_id.stamp
+build webrtc/media$:rtc_media: phony obj/webrtc/media/rtc_media.stamp
+build webrtc/media$:rtc_media_base: phony obj/webrtc/media/librtc_media_base.a
+build webrtc/modules$:module_api: phony obj/webrtc/modules/module_api.stamp
+build webrtc/modules$:modules: phony obj/webrtc/modules/modules.stamp
+build webrtc/modules: phony obj/webrtc/modules/modules.stamp
+build webrtc/modules/audio_coding$:ana_config_proto: phony obj/webrtc/modules/audio_coding/libana_config_proto.a
+build webrtc/modules/audio_coding$:ana_config_proto_gen: phony obj/webrtc/modules/audio_coding/ana_config_proto_gen.stamp
+build webrtc/modules/audio_coding$:ana_debug_dump_proto: phony obj/webrtc/modules/audio_coding/libana_debug_dump_proto.a
+build webrtc/modules/audio_coding$:ana_debug_dump_proto_gen: phony obj/webrtc/modules/audio_coding/ana_debug_dump_proto_gen.stamp
+build webrtc/modules/audio_coding$:audio_coding: phony obj/webrtc/modules/audio_coding/libaudio_coding.a
+build webrtc/modules/audio_coding: phony obj/webrtc/modules/audio_coding/libaudio_coding.a
+build webrtc/modules/audio_coding$:audio_coding_module_typedefs: phony obj/webrtc/modules/audio_coding/audio_coding_module_typedefs.stamp
+build webrtc/modules/audio_coding$:audio_decoder_interface: phony obj/webrtc/modules/audio_coding/audio_decoder_interface.stamp
+build webrtc/modules/audio_coding$:audio_encoder_interface: phony obj/webrtc/modules/audio_coding/audio_encoder_interface.stamp
+build webrtc/modules/audio_coding$:audio_format_conversion: phony obj/webrtc/modules/audio_coding/libaudio_format_conversion.a
+build webrtc/modules/audio_coding$:audio_network_adaptor: phony obj/webrtc/modules/audio_coding/libaudio_network_adaptor.a
+build webrtc/modules/audio_coding$:builtin_audio_decoder_factory: phony obj/webrtc/modules/audio_coding/builtin_audio_decoder_factory.stamp
+build webrtc/modules/audio_coding$:builtin_audio_encoder_factory: phony obj/webrtc/modules/audio_coding/builtin_audio_encoder_factory.stamp
+build webrtc/modules/audio_coding$:cng: phony obj/webrtc/modules/audio_coding/libcng.a
+build webrtc/modules/audio_coding$:g711: phony obj/webrtc/modules/audio_coding/libg711.a
+build webrtc/modules/audio_coding$:g711_c: phony obj/webrtc/modules/audio_coding/g711_c.stamp
+build webrtc/modules/audio_coding$:g722: phony obj/webrtc/modules/audio_coding/libg722.a
+build webrtc/modules/audio_coding$:g722_c: phony obj/webrtc/modules/audio_coding/g722_c.stamp
+build webrtc/modules/audio_coding$:ilbc: phony obj/webrtc/modules/audio_coding/libilbc.a
+build webrtc/modules/audio_coding$:ilbc_c: phony obj/webrtc/modules/audio_coding/ilbc_c.stamp
+build webrtc/modules/audio_coding$:isac: phony obj/webrtc/modules/audio_coding/libisac.a
+build webrtc/modules/audio_coding$:isac_c: phony obj/webrtc/modules/audio_coding/libisac_c.a
+build webrtc/modules/audio_coding$:isac_common: phony obj/webrtc/modules/audio_coding/libisac_common.a
+build webrtc/modules/audio_coding$:isac_fix: phony obj/webrtc/modules/audio_coding/libisac_fix.a
+build webrtc/modules/audio_coding$:isac_fix_c: phony obj/webrtc/modules/audio_coding/isac_fix_c.stamp
+build webrtc/modules/audio_coding$:isac_fix_c_arm_asm: phony obj/webrtc/modules/audio_coding/isac_fix_c_arm_asm.stamp
+build webrtc/modules/audio_coding$:isac_fix_common: phony obj/webrtc/modules/audio_coding/isac_fix_common.stamp
+build webrtc/modules/audio_coding$:legacy_encoded_audio_frame: phony obj/webrtc/modules/audio_coding/liblegacy_encoded_audio_frame.a
+build webrtc/modules/audio_coding$:neteq: phony obj/webrtc/modules/audio_coding/libneteq.a
+build webrtc/modules/audio_coding$:neteq_decoder_enum: phony obj/webrtc/modules/audio_coding/neteq_decoder_enum.stamp
+build webrtc/modules/audio_coding$:neteq_test_tools: phony obj/webrtc/modules/audio_coding/neteq_test_tools.stamp
+build webrtc/modules/audio_coding$:neteq_tools: phony obj/webrtc/modules/audio_coding/neteq_tools.stamp
+build webrtc/modules/audio_coding$:neteq_tools_minimal: phony obj/webrtc/modules/audio_coding/neteq_tools_minimal.stamp
+build webrtc/modules/audio_coding$:pcm16b: phony obj/webrtc/modules/audio_coding/libpcm16b.a
+build webrtc/modules/audio_coding$:pcm16b_c: phony obj/webrtc/modules/audio_coding/pcm16b_c.stamp
+build webrtc/modules/audio_coding$:red: phony obj/webrtc/modules/audio_coding/libred.a
+build webrtc/modules/audio_coding$:rent_a_codec: phony obj/webrtc/modules/audio_coding/librent_a_codec.a
+build webrtc/modules/audio_coding$:rtc_event_log_source: phony obj/webrtc/modules/audio_coding/librtc_event_log_source.a
+build webrtc/modules/audio_coding$:webrtc_opus: phony obj/webrtc/modules/audio_coding/libwebrtc_opus.a
+build webrtc/modules/audio_coding$:webrtc_opus_c: phony obj/webrtc/modules/audio_coding/webrtc_opus_c.stamp
+build webrtc/modules/audio_conference_mixer$:audio_conference_mixer: phony obj/webrtc/modules/audio_conference_mixer/libaudio_conference_mixer.a
+build webrtc/modules/audio_conference_mixer: phony obj/webrtc/modules/audio_conference_mixer/libaudio_conference_mixer.a
+build webrtc/modules/audio_device$:audio_device: phony obj/webrtc/modules/audio_device/libaudio_device.a
+build webrtc/modules/audio_device: phony obj/webrtc/modules/audio_device/libaudio_device.a
+build webrtc/modules/audio_device$:mac_portaudio: phony obj/webrtc/modules/audio_device/mac_portaudio.stamp
+build webrtc/modules/audio_device$:mock_audio_device: phony obj/webrtc/modules/audio_device/mock_audio_device.stamp
+build webrtc/modules/audio_mixer$:audio_frame_manipulator: phony obj/webrtc/modules/audio_mixer/libaudio_frame_manipulator.a
+build webrtc/modules/audio_mixer$:audio_mixer: phony obj/webrtc/modules/audio_mixer/audio_mixer.stamp
+build webrtc/modules/audio_mixer: phony obj/webrtc/modules/audio_mixer/audio_mixer.stamp
+build webrtc/modules/audio_mixer$:audio_mixer_impl: phony obj/webrtc/modules/audio_mixer/libaudio_mixer_impl.a
+build webrtc/modules/audio_processing$:aec_dump_interface: phony obj/webrtc/modules/audio_processing/aec_dump_interface.stamp
+build webrtc/modules/audio_processing$:audio_processing: phony obj/webrtc/modules/audio_processing/libaudio_processing.a
+build webrtc/modules/audio_processing: phony obj/webrtc/modules/audio_processing/libaudio_processing.a
+build webrtc/modules/audio_processing$:audio_processing_c: phony obj/webrtc/modules/audio_processing/audio_processing_c.stamp
+build webrtc/modules/audio_processing$:audio_processing_sse2: phony obj/webrtc/modules/audio_processing/libaudio_processing_sse2.a
+build webrtc/modules/audio_processing$:audioproc_debug_proto: phony obj/webrtc/modules/audio_processing/libaudioproc_debug_proto.a
+build webrtc/modules/audio_processing$:audioproc_debug_proto_gen: phony obj/webrtc/modules/audio_processing/audioproc_debug_proto_gen.stamp
+build webrtc/modules/audio_processing/aec_dump$:aec_dump: phony obj/webrtc/modules/audio_processing/aec_dump/aec_dump.stamp
+build webrtc/modules/audio_processing/aec_dump: phony obj/webrtc/modules/audio_processing/aec_dump/aec_dump.stamp
+build webrtc/modules/audio_processing/aec_dump$:aec_dump_impl: phony obj/webrtc/modules/audio_processing/aec_dump/aec_dump_impl.stamp
+build webrtc/modules/audio_processing/aec_dump$:aec_dump_unittests: phony obj/webrtc/modules/audio_processing/aec_dump/aec_dump_unittests.stamp
+build webrtc/modules/audio_processing/aec_dump$:mock_aec_dump: phony obj/webrtc/modules/audio_processing/aec_dump/mock_aec_dump.stamp
+build webrtc/modules/audio_processing/aec_dump$:mock_aec_dump_unittests: phony obj/webrtc/modules/audio_processing/aec_dump/mock_aec_dump_unittests.stamp
+build webrtc/modules/audio_processing/aec_dump$:null_aec_dump_factory: phony obj/webrtc/modules/audio_processing/aec_dump/null_aec_dump_factory.stamp
+build webrtc/modules/bitrate_controller$:bitrate_controller: phony obj/webrtc/modules/bitrate_controller/libbitrate_controller.a
+build webrtc/modules/bitrate_controller: phony obj/webrtc/modules/bitrate_controller/libbitrate_controller.a
+build webrtc/modules/congestion_controller$:congestion_controller: phony obj/webrtc/modules/congestion_controller/libcongestion_controller.a
+build webrtc/modules/congestion_controller: phony obj/webrtc/modules/congestion_controller/libcongestion_controller.a
+build webrtc/modules/desktop_capture$:desktop_capture: phony obj/webrtc/modules/desktop_capture/desktop_capture.stamp
+build webrtc/modules/desktop_capture: phony obj/webrtc/modules/desktop_capture/desktop_capture.stamp
+build webrtc/modules/desktop_capture$:desktop_capture_differ_sse2: phony obj/webrtc/modules/desktop_capture/libdesktop_capture_differ_sse2.a
+build webrtc/modules/desktop_capture$:desktop_capture_generic: phony obj/webrtc/modules/desktop_capture/libdesktop_capture_generic.a
+build webrtc/modules/desktop_capture$:primitives: phony obj/webrtc/modules/desktop_capture/libprimitives.a
+build webrtc/modules/media_file$:media_file: phony obj/webrtc/modules/media_file/libmedia_file.a
+build webrtc/modules/media_file: phony obj/webrtc/modules/media_file/libmedia_file.a
+build webrtc/modules/pacing$:pacing: phony obj/webrtc/modules/pacing/libpacing.a
+build webrtc/modules/pacing: phony obj/webrtc/modules/pacing/libpacing.a
+build webrtc/modules/remote_bitrate_estimator$:remote_bitrate_estimator: phony obj/webrtc/modules/remote_bitrate_estimator/libremote_bitrate_estimator.a
+build webrtc/modules/remote_bitrate_estimator: phony obj/webrtc/modules/remote_bitrate_estimator/libremote_bitrate_estimator.a
+build webrtc/modules/rtp_rtcp$:fec_test_helper: phony obj/webrtc/modules/rtp_rtcp/fec_test_helper.stamp
+build webrtc/modules/rtp_rtcp$:mock_rtp_rtcp: phony obj/webrtc/modules/rtp_rtcp/mock_rtp_rtcp.stamp
+build webrtc/modules/rtp_rtcp$:rtp_rtcp: phony obj/webrtc/modules/rtp_rtcp/librtp_rtcp.a
+build webrtc/modules/rtp_rtcp: phony obj/webrtc/modules/rtp_rtcp/librtp_rtcp.a
+build webrtc/modules/utility$:mock_process_thread: phony obj/webrtc/modules/utility/mock_process_thread.stamp
+build webrtc/modules/utility$:utility: phony obj/webrtc/modules/utility/libutility.a
+build webrtc/modules/utility: phony obj/webrtc/modules/utility/libutility.a
+build webrtc/modules/video_capture$:video_capture: phony obj/webrtc/modules/video_capture/libvideo_capture.a
+build webrtc/modules/video_capture: phony obj/webrtc/modules/video_capture/libvideo_capture.a
+build webrtc/modules/video_capture$:video_capture_internal_impl: phony obj/webrtc/modules/video_capture/video_capture_internal_impl.stamp
+build webrtc/modules/video_capture$:video_capture_module: phony obj/webrtc/modules/video_capture/libvideo_capture_module.a
+build webrtc/modules/video_coding$:video_coding: phony obj/webrtc/modules/video_coding/libvideo_coding.a
+build webrtc/modules/video_coding: phony obj/webrtc/modules/video_coding/libvideo_coding.a
+build webrtc/modules/video_coding$:video_coding_utility: phony obj/webrtc/modules/video_coding/libvideo_coding_utility.a
+build webrtc/modules/video_coding$:webrtc_h264: phony obj/webrtc/modules/video_coding/libwebrtc_h264.a
+build webrtc/modules/video_coding$:webrtc_i420: phony obj/webrtc/modules/video_coding/libwebrtc_i420.a
+build webrtc/modules/video_coding$:webrtc_vp8: phony obj/webrtc/modules/video_coding/libwebrtc_vp8.a
+build webrtc/modules/video_coding$:webrtc_vp9: phony obj/webrtc/modules/video_coding/libwebrtc_vp9.a
+build webrtc/modules/video_processing$:denoiser_filter: phony obj/webrtc/modules/video_processing/denoiser_filter.stamp
+build webrtc/modules/video_processing$:video_processing: phony obj/webrtc/modules/video_processing/libvideo_processing.a
+build webrtc/modules/video_processing: phony obj/webrtc/modules/video_processing/libvideo_processing.a
+build webrtc/modules/video_processing$:video_processing_sse2: phony obj/webrtc/modules/video_processing/libvideo_processing_sse2.a
+build webrtc/ortc$:ortc: phony obj/webrtc/ortc/libortc.a
+build webrtc/ortc: phony obj/webrtc/ortc/libortc.a
+build webrtc/p2p$:libstunprober: phony obj/webrtc/p2p/libstunprober.a
+build webrtc/p2p$:p2p: phony obj/webrtc/p2p/p2p.stamp
+build webrtc/p2p: phony obj/webrtc/p2p/p2p.stamp
+build webrtc/p2p$:rtc_p2p: phony obj/webrtc/p2p/librtc_p2p.a
+build webrtc/pc$:create_pc_factory: phony obj/webrtc/pc/libcreate_pc_factory.a
+build webrtc/pc$:libjingle_peerconnection: phony obj/webrtc/pc/libjingle_peerconnection.stamp
+build webrtc/pc$:pc: phony obj/webrtc/pc/pc.stamp
+build webrtc/pc: phony obj/webrtc/pc/pc.stamp
+build webrtc/pc$:peerconnection: phony obj/webrtc/pc/libpeerconnection.a
+build webrtc/pc$:rtc_pc: phony obj/webrtc/pc/rtc_pc.stamp
+build webrtc/pc$:rtc_pc_base: phony obj/webrtc/pc/librtc_pc_base.a
+build webrtc/rtc_base$:base: phony obj/webrtc/rtc_base/base.stamp
+build webrtc/rtc_base$:compile_assert_c: phony obj/webrtc/rtc_base/compile_assert_c.stamp
+build webrtc/rtc_base$:gtest_prod: phony obj/webrtc/rtc_base/gtest_prod.stamp
+build webrtc/rtc_base$:protobuf_utils: phony obj/webrtc/rtc_base/protobuf_utils.stamp
+build webrtc/rtc_base$:rtc_base: phony obj/webrtc/rtc_base/librtc_base.a
+build webrtc/rtc_base: phony obj/webrtc/rtc_base/librtc_base.a
+build webrtc/rtc_base$:rtc_base_approved: phony obj/webrtc/rtc_base/librtc_base_approved.a
+build webrtc/rtc_base$:rtc_base_tests_utils: phony obj/webrtc/rtc_base/rtc_base_tests_utils.stamp
+build webrtc/rtc_base$:rtc_json: phony obj/webrtc/rtc_base/rtc_json.stamp
+build webrtc/rtc_base$:rtc_numerics: phony obj/webrtc/rtc_base/librtc_numerics.a
+build webrtc/rtc_base$:rtc_task_queue: phony obj/webrtc/rtc_base/rtc_task_queue.stamp
+build webrtc/rtc_base$:rtc_task_queue_api: phony obj/webrtc/rtc_base/rtc_task_queue_api.stamp
+build webrtc/rtc_base$:rtc_task_queue_impl: phony obj/webrtc/rtc_base/rtc_task_queue_impl.stamp
+build webrtc/rtc_base$:sequenced_task_checker: phony obj/webrtc/rtc_base/libsequenced_task_checker.a
+build webrtc/rtc_base$:weak_ptr: phony obj/webrtc/rtc_base/libweak_ptr.a
+build webrtc/rtc_tools$:chart_proto: phony obj/webrtc/rtc_tools/libchart_proto.a
+build webrtc/rtc_tools$:chart_proto_gen: phony obj/webrtc/rtc_tools/chart_proto_gen.stamp
+build webrtc/rtc_tools$:command_line_parser: phony obj/webrtc/rtc_tools/libcommand_line_parser.a
+build webrtc/rtc_tools$:event_log_visualizer_utils: phony obj/webrtc/rtc_tools/libevent_log_visualizer_utils.a
+build webrtc/rtc_tools$:force_mic_volume_max: phony ./force_mic_volume_max
+build webrtc/rtc_tools$:frame_analyzer: phony ./frame_analyzer
+build webrtc/rtc_tools$:frame_editing_lib: phony obj/webrtc/rtc_tools/libframe_editing_lib.a
+build webrtc/rtc_tools$:frame_editor: phony ./frame_editor
+build webrtc/rtc_tools$:psnr_ssim_analyzer: phony ./psnr_ssim_analyzer
+build webrtc/rtc_tools$:reference_less_video_analysis: phony ./reference_less_video_analysis
+build webrtc/rtc_tools$:reference_less_video_analysis_lib: phony obj/webrtc/rtc_tools/libreference_less_video_analysis_lib.a
+build webrtc/rtc_tools$:rgba_to_i420_converter: phony ./rgba_to_i420_converter
+build webrtc/rtc_tools$:rtc_tools: phony obj/webrtc/rtc_tools/rtc_tools.stamp
+build webrtc/rtc_tools: phony obj/webrtc/rtc_tools/rtc_tools.stamp
+build webrtc/rtc_tools$:video_quality_analysis: phony obj/webrtc/rtc_tools/libvideo_quality_analysis.a
+build webrtc/sdk$:sdk: phony obj/webrtc/sdk/sdk.stamp
+build webrtc/sdk: phony obj/webrtc/sdk/sdk.stamp
+build webrtc/stats$:rtc_stats: phony obj/webrtc/stats/librtc_stats.a
+build webrtc/stats$:rtc_stats_test_utils: phony obj/webrtc/stats/rtc_stats_test_utils.stamp
+build webrtc/stats$:stats: phony obj/webrtc/stats/stats.stamp
+build webrtc/stats: phony obj/webrtc/stats/stats.stamp
+build webrtc/system_wrappers$:asm_defines: phony obj/webrtc/system_wrappers/asm_defines.stamp
+build webrtc/system_wrappers$:cpu_features_api: phony obj/webrtc/system_wrappers/cpu_features_api.stamp
+build webrtc/system_wrappers$:cpu_features_linux: phony obj/webrtc/system_wrappers/libcpu_features_linux.a
+build webrtc/system_wrappers$:field_trial_api: phony obj/webrtc/system_wrappers/field_trial_api.stamp
+build webrtc/system_wrappers$:field_trial_default: phony obj/webrtc/system_wrappers/libfield_trial_default.a
+build webrtc/system_wrappers$:metrics_api: phony obj/webrtc/system_wrappers/metrics_api.stamp
+build webrtc/system_wrappers$:metrics_default: phony obj/webrtc/system_wrappers/libmetrics_default.a
+build webrtc/system_wrappers$:system_wrappers: phony obj/webrtc/system_wrappers/libsystem_wrappers.a
+build webrtc/system_wrappers: phony obj/webrtc/system_wrappers/libsystem_wrappers.a
+build webrtc/system_wrappers$:system_wrappers_default: phony obj/webrtc/system_wrappers/system_wrappers_default.stamp
+build webrtc/test$:audio_codec_mocks: phony obj/webrtc/test/audio_codec_mocks.stamp
+build webrtc/test$:direct_transport: phony obj/webrtc/test/direct_transport.stamp
+build webrtc/test$:fake_audio_device: phony obj/webrtc/test/fake_audio_device.stamp
+build webrtc/test$:field_trial: phony obj/webrtc/test/field_trial.stamp
+build webrtc/test$:fileutils: phony obj/webrtc/test/fileutils.stamp
+build webrtc/test$:fileutils_unittests: phony obj/webrtc/test/fileutils_unittests.stamp
+build webrtc/test$:rtp_test_utils: phony obj/webrtc/test/rtp_test_utils.stamp
+build webrtc/test$:run_test: phony obj/webrtc/test/run_test.stamp
+build webrtc/test$:run_test_generic: phony obj/webrtc/test/run_test_generic.stamp
+build webrtc/test$:run_test_interface: phony obj/webrtc/test/run_test_interface.stamp
+build webrtc/test$:single_threaded_task_queue: phony obj/webrtc/test/single_threaded_task_queue.stamp
+build webrtc/test$:test: phony obj/webrtc/test/test.stamp
+build webrtc/test: phony obj/webrtc/test/test.stamp
+build webrtc/test$:test_common: phony obj/webrtc/test/test_common.stamp
+build webrtc/test$:test_main: phony obj/webrtc/test/test_main.stamp
+build webrtc/test$:test_renderer: phony obj/webrtc/test/test_renderer.stamp
+build webrtc/test$:test_renderer_generic: phony obj/webrtc/test/test_renderer_generic.stamp
+build webrtc/test$:test_support: phony obj/webrtc/test/test_support.stamp
+build webrtc/test$:test_support_test_output: phony obj/webrtc/test/test_support_test_output.stamp
+build webrtc/test$:test_support_unittests: phony ./test_support_unittests
+build webrtc/test$:video_test_common: phony obj/webrtc/test/video_test_common.stamp
+build webrtc/test$:video_test_support: phony obj/webrtc/test/video_test_support.stamp
+build webrtc/video$:video: phony obj/webrtc/video/libvideo.a
+build webrtc/video: phony obj/webrtc/video/libvideo.a
+build webrtc/voice_engine$:audio_coder: phony obj/webrtc/voice_engine/libaudio_coder.a
+build webrtc/voice_engine$:audio_level: phony obj/webrtc/voice_engine/libaudio_level.a
+build webrtc/voice_engine$:file_player: phony obj/webrtc/voice_engine/libfile_player.a
+build webrtc/voice_engine$:file_recorder: phony obj/webrtc/voice_engine/libfile_recorder.a
+build webrtc/voice_engine$:voice_engine: phony obj/webrtc/voice_engine/libvoice_engine.a
+build webrtc/voice_engine: phony obj/webrtc/voice_engine/libvoice_engine.a
+
+build all: phony $
+    obj/default.stamp $
+    obj/base/third_party/libevent/libevent.a $
+    obj/build/config/exe_and_shlib_deps.stamp $
+    obj/build/config/linux/linux.stamp $
+    obj/build/config/linux/gtk/gtk.stamp $
+    obj/build/config/linux/gtk3/gtk3.stamp $
+    obj/build/config/linux/gtk3/gtkprint3.stamp $
+    obj/build/config/posix/posix.stamp $
+    obj/build/config/sanitizers/deps.stamp $
+    obj/build/config/sanitizers/liboptions_sources.a $
+    obj/build/win/default_exe_manifest.stamp $
+    obj/testing/gmock/gmock.stamp $
+    obj/testing/gmock/gmock_main.stamp $
+    obj/testing/gtest/libgtest.a $
+    obj/testing/gtest/gtest_main.stamp $
+    obj/third_party/jpeg.stamp $
+    obj/third_party/jpeg_includes.stamp $
+    obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/boringssl/boringssl_asm.stamp $
+    ./boringssl_crypto_tests $
+    ./boringssl_ssl_tests $
+    obj/third_party/ffmpeg/ffmpeg.stamp $
+    obj/third_party/ffmpeg/ffmpeg_features.stamp $
+    obj/third_party/ffmpeg/libffmpeg_internal.a $
+    obj/third_party/ffmpeg/libffmpeg_yasm.a $
+    obj/third_party/ffmpeg/ffmpeg_yasm_action.stamp $
+    obj/third_party/gflags/gflags.stamp $
+    obj/third_party/googletest/gmock.stamp $
+    obj/third_party/googletest/libgmock_main.a $
+    obj/third_party/googletest/gtest.stamp $
+    obj/third_party/googletest/gtest_main.stamp $
+    obj/third_party/jsoncpp/jsoncpp.stamp $
+    obj/third_party/libjpeg_turbo/libjpeg.a $
+    obj/third_party/libjpeg_turbo/libsimd.a $
+    obj/third_party/libjpeg_turbo/libsimd_asm.a $
+    obj/third_party/libjpeg_turbo/simd_asm_action.stamp $
+    obj/third_party/libsrtp/libsrtp.a $
+    obj/third_party/libvpx/libvpx.a $
+    obj/third_party/libvpx/libvpx_intrinsics_avx.stamp $
+    obj/third_party/libvpx/libvpx_intrinsics_avx2.stamp $
+    obj/third_party/libvpx/libvpx_intrinsics_mmx.stamp $
+    obj/third_party/libvpx/libvpx_intrinsics_sse2.stamp $
+    obj/third_party/libvpx/libvpx_intrinsics_sse4_1.stamp $
+    obj/third_party/libvpx/libvpx_intrinsics_ssse3.stamp $
+    obj/third_party/libvpx/libvpx_yasm.a $
+    obj/third_party/libvpx/libvpx_yasm_action.stamp $
+    ./compare $
+    ./cpuid $
+    obj/third_party/libyuv/default.stamp $
+    obj/third_party/libyuv/libyuv.stamp $
+    obj/third_party/libyuv/libyuv_internal.a $
+    ./libyuv_unittest $
+    ./psnr $
+    ./yuvconvert $
+    obj/third_party/openh264/common.stamp $
+    obj/third_party/openh264/encoder.stamp $
+    obj/third_party/openh264/libopenh264_common_yasm.a $
+    obj/third_party/openh264/openh264_common_yasm_action.stamp $
+    obj/third_party/openh264/libopenh264_encoder_yasm.a $
+    obj/third_party/openh264/openh264_encoder_yasm_action.stamp $
+    obj/third_party/openh264/libopenh264_processing_yasm.a $
+    obj/third_party/openh264/openh264_processing_yasm_action.stamp $
+    obj/third_party/openh264/processing.stamp $
+    obj/third_party/openmax_dl/dl/libdl.a $
+    obj/third_party/opus/libopus.a $
+    ./opus_compare $
+    ./opus_demo $
+    ./test_opus_api $
+    ./test_opus_decode $
+    ./test_opus_encode $
+    ./test_opus_padding $
+    obj/third_party/protobuf/copy_google.stamp $
+    obj/third_party/protobuf/copy_google_protobuf.stamp $
+    obj/third_party/protobuf/copy_google_protobuf_internal.stamp $
+    obj/third_party/protobuf/copy_six.stamp $
+    ./js_embed $
+    obj/third_party/protobuf/libprotobuf_full.a $
+    obj/third_party/protobuf/libprotobuf_lite.a $
+    ./protoc $
+    obj/third_party/protobuf/libprotoc_lib.a $
+    obj/third_party/protobuf/py_proto.stamp $
+    obj/third_party/usrsctp/libusrsctp.a $
+    obj/third_party/yasm/compile_gperf.stamp $
+    obj/third_party/yasm/compile_gperf_for_include.stamp $
+    obj/third_party/yasm/compile_nasm_macros.stamp $
+    obj/third_party/yasm/compile_nasm_version.stamp $
+    obj/third_party/yasm/compile_re2c.stamp $
+    obj/third_party/yasm/compile_re2c_lc3b.stamp $
+    obj/third_party/yasm/compile_win64_gas.stamp $
+    obj/third_party/yasm/compile_win64_nasm.stamp $
+    obj/third_party/yasm/generate_license.stamp $
+    obj/third_party/yasm/generate_module.stamp $
+    obj/third_party/yasm/generate_version.stamp $
+    ./genmacro $
+    ./genmodule $
+    ./genperf $
+    ./genstring $
+    ./genversion $
+    ./re2c $
+    ./yasm $
+    obj/third_party/yasm/libyasm_utils.a $
+    obj/webrtc/libwebrtc.a $
+    obj/webrtc/libwebrtc_common.a $
+    obj/webrtc/api/api.stamp $
+    obj/webrtc/api/array_view.stamp $
+    obj/webrtc/api/audio_mixer_api.stamp $
+    obj/webrtc/api/call_api.stamp $
+    obj/webrtc/api/libjingle_peerconnection.stamp $
+    obj/webrtc/api/libjingle_peerconnection_api.a $
+    obj/webrtc/api/libjingle_peerconnection_test_api.stamp $
+    obj/webrtc/api/ortc_api.stamp $
+    obj/webrtc/api/rtc_stats_api.stamp $
+    obj/webrtc/api/transport_api.stamp $
+    obj/webrtc/api/video_frame_api.stamp $
+    obj/webrtc/api/audio_codecs/audio_codecs_api.stamp $
+    obj/webrtc/api/audio_codecs/libbuiltin_audio_decoder_factory.a $
+    obj/webrtc/api/audio_codecs/libbuiltin_audio_encoder_factory.a $
+    obj/webrtc/api/audio_codecs/L16/libaudio_decoder_L16.a $
+    obj/webrtc/api/audio_codecs/L16/libaudio_encoder_L16.a $
+    obj/webrtc/api/audio_codecs/g711/libaudio_decoder_g711.a $
+    obj/webrtc/api/audio_codecs/g711/libaudio_encoder_g711.a $
+    obj/webrtc/api/audio_codecs/g722/libaudio_decoder_g722.a $
+    obj/webrtc/api/audio_codecs/g722/libaudio_encoder_g722.a $
+    obj/webrtc/api/audio_codecs/g722/audio_encoder_g722_config.stamp $
+    obj/webrtc/api/audio_codecs/ilbc/libaudio_decoder_ilbc.a $
+    obj/webrtc/api/audio_codecs/ilbc/libaudio_encoder_ilbc.a $
+    obj/webrtc/api/audio_codecs/ilbc/audio_encoder_ilbc_config.stamp $
+    obj/webrtc/api/audio_codecs/isac/libaudio_decoder_isac_fix.a $
+    obj/webrtc/api/audio_codecs/isac/libaudio_decoder_isac_float.a $
+    obj/webrtc/api/audio_codecs/isac/libaudio_encoder_isac_fix.a $
+    obj/webrtc/api/audio_codecs/isac/libaudio_encoder_isac_float.a $
+    obj/webrtc/api/audio_codecs/opus/libaudio_decoder_opus.a $
+    obj/webrtc/api/audio_codecs/opus/audio_encoder_opus.stamp $
+    obj/webrtc/api/audio_codecs/opus/libaudio_encoder_opus_config.a $
+    obj/webrtc/api/video_codecs/video_codecs_api.stamp $
+    obj/webrtc/audio/libaudio.a $
+    obj/webrtc/audio/utility/libaudio_frame_operations.a $
+    obj/webrtc/audio/utility/utility.stamp $
+    obj/webrtc/call/libcall.a $
+    obj/webrtc/call/call_interfaces.stamp $
+    obj/webrtc/call/rtp_interfaces.stamp $
+    obj/webrtc/call/rtp_receiver.stamp $
+    obj/webrtc/call/rtp_sender.stamp $
+    obj/webrtc/call/video_stream_api.stamp $
+    obj/webrtc/common_audio/libcommon_audio.a $
+    obj/webrtc/common_audio/common_audio_c.stamp $
+    obj/webrtc/common_audio/common_audio_c_arm_asm.stamp $
+    obj/webrtc/common_audio/common_audio_cc.stamp $
+    obj/webrtc/common_audio/libcommon_audio_sse2.a $
+    obj/webrtc/common_audio/sinc_resampler.stamp $
+    obj/webrtc/common_video/libcommon_video.a $
+    obj/webrtc/examples/examples.stamp $
+    ./peerconnection_client $
+    ./peerconnection_server $
+    ./relayserver $
+    ./stun_prober $
+    ./stunserver $
+    ./turnserver $
+    obj/webrtc/logging/logging.stamp $
+    obj/webrtc/logging/rtc_event_log_api.stamp $
+    obj/webrtc/logging/librtc_event_log_impl.a $
+    obj/webrtc/logging/librtc_event_log_parser.a $
+    obj/webrtc/logging/librtc_event_log_proto.a $
+    obj/webrtc/logging/rtc_event_log_proto_gen.stamp $
+    obj/webrtc/media/media.stamp $
+    obj/webrtc/media/librtc_audio_video.a $
+    obj/webrtc/media/librtc_data.a $
+    obj/webrtc/media/rtc_h264_profile_id.stamp $
+    obj/webrtc/media/rtc_media.stamp $
+    obj/webrtc/media/librtc_media_base.a $
+    obj/webrtc/modules/module_api.stamp $
+    obj/webrtc/modules/modules.stamp $
+    obj/webrtc/modules/audio_coding/libana_config_proto.a $
+    obj/webrtc/modules/audio_coding/ana_config_proto_gen.stamp $
+    obj/webrtc/modules/audio_coding/libana_debug_dump_proto.a $
+    obj/webrtc/modules/audio_coding/ana_debug_dump_proto_gen.stamp $
+    obj/webrtc/modules/audio_coding/libaudio_coding.a $
+    obj/webrtc/modules/audio_coding/audio_coding_module_typedefs.stamp $
+    obj/webrtc/modules/audio_coding/audio_decoder_interface.stamp $
+    obj/webrtc/modules/audio_coding/audio_encoder_interface.stamp $
+    obj/webrtc/modules/audio_coding/libaudio_format_conversion.a $
+    obj/webrtc/modules/audio_coding/libaudio_network_adaptor.a $
+    obj/webrtc/modules/audio_coding/builtin_audio_decoder_factory.stamp $
+    obj/webrtc/modules/audio_coding/builtin_audio_encoder_factory.stamp $
+    obj/webrtc/modules/audio_coding/libcng.a $
+    obj/webrtc/modules/audio_coding/libg711.a $
+    obj/webrtc/modules/audio_coding/g711_c.stamp $
+    obj/webrtc/modules/audio_coding/libg722.a $
+    obj/webrtc/modules/audio_coding/g722_c.stamp $
+    obj/webrtc/modules/audio_coding/libilbc.a $
+    obj/webrtc/modules/audio_coding/ilbc_c.stamp $
+    obj/webrtc/modules/audio_coding/libisac.a $
+    obj/webrtc/modules/audio_coding/libisac_c.a $
+    obj/webrtc/modules/audio_coding/libisac_common.a $
+    obj/webrtc/modules/audio_coding/libisac_fix.a $
+    obj/webrtc/modules/audio_coding/isac_fix_c.stamp $
+    obj/webrtc/modules/audio_coding/isac_fix_c_arm_asm.stamp $
+    obj/webrtc/modules/audio_coding/isac_fix_common.stamp $
+    obj/webrtc/modules/audio_coding/liblegacy_encoded_audio_frame.a $
+    obj/webrtc/modules/audio_coding/libneteq.a $
+    obj/webrtc/modules/audio_coding/neteq_decoder_enum.stamp $
+    obj/webrtc/modules/audio_coding/neteq_test_tools.stamp $
+    obj/webrtc/modules/audio_coding/neteq_tools.stamp $
+    obj/webrtc/modules/audio_coding/neteq_tools_minimal.stamp $
+    obj/webrtc/modules/audio_coding/libpcm16b.a $
+    obj/webrtc/modules/audio_coding/pcm16b_c.stamp $
+    obj/webrtc/modules/audio_coding/libred.a $
+    obj/webrtc/modules/audio_coding/librent_a_codec.a $
+    obj/webrtc/modules/audio_coding/librtc_event_log_source.a $
+    obj/webrtc/modules/audio_coding/libwebrtc_opus.a $
+    obj/webrtc/modules/audio_coding/webrtc_opus_c.stamp $
+    obj/webrtc/modules/audio_conference_mixer/libaudio_conference_mixer.a $
+    obj/webrtc/modules/audio_device/libaudio_device.a $
+    obj/webrtc/modules/audio_device/mac_portaudio.stamp $
+    obj/webrtc/modules/audio_device/mock_audio_device.stamp $
+    obj/webrtc/modules/audio_mixer/libaudio_frame_manipulator.a $
+    obj/webrtc/modules/audio_mixer/audio_mixer.stamp $
+    obj/webrtc/modules/audio_mixer/libaudio_mixer_impl.a $
+    obj/webrtc/modules/audio_processing/aec_dump_interface.stamp $
+    obj/webrtc/modules/audio_processing/libaudio_processing.a $
+    obj/webrtc/modules/audio_processing/audio_processing_c.stamp $
+    obj/webrtc/modules/audio_processing/libaudio_processing_sse2.a $
+    obj/webrtc/modules/audio_processing/libaudioproc_debug_proto.a $
+    obj/webrtc/modules/audio_processing/audioproc_debug_proto_gen.stamp $
+    obj/webrtc/modules/audio_processing/aec_dump/aec_dump.stamp $
+    obj/webrtc/modules/audio_processing/aec_dump/aec_dump_impl.stamp $
+    obj/webrtc/modules/audio_processing/aec_dump/aec_dump_unittests.stamp $
+    obj/webrtc/modules/audio_processing/aec_dump/mock_aec_dump.stamp $
+    obj/webrtc/modules/audio_processing/aec_dump/mock_aec_dump_unittests.stamp $
+    obj/webrtc/modules/audio_processing/aec_dump/null_aec_dump_factory.stamp $
+    obj/webrtc/modules/bitrate_controller/libbitrate_controller.a $
+    obj/webrtc/modules/congestion_controller/libcongestion_controller.a $
+    obj/webrtc/modules/desktop_capture/desktop_capture.stamp $
+    obj/webrtc/modules/desktop_capture/libdesktop_capture_differ_sse2.a $
+    obj/webrtc/modules/desktop_capture/libdesktop_capture_generic.a $
+    obj/webrtc/modules/desktop_capture/libprimitives.a $
+    obj/webrtc/modules/media_file/libmedia_file.a $
+    obj/webrtc/modules/pacing/libpacing.a $
+    obj/webrtc/modules/remote_bitrate_estimator/libremote_bitrate_estimator.a $
+    obj/webrtc/modules/rtp_rtcp/fec_test_helper.stamp $
+    obj/webrtc/modules/rtp_rtcp/mock_rtp_rtcp.stamp $
+    obj/webrtc/modules/rtp_rtcp/librtp_rtcp.a $
+    obj/webrtc/modules/utility/mock_process_thread.stamp $
+    obj/webrtc/modules/utility/libutility.a $
+    obj/webrtc/modules/video_capture/libvideo_capture.a $
+    obj/webrtc/modules/video_capture/video_capture_internal_impl.stamp $
+    obj/webrtc/modules/video_capture/libvideo_capture_module.a $
+    obj/webrtc/modules/video_coding/libvideo_coding.a $
+    obj/webrtc/modules/video_coding/libvideo_coding_utility.a $
+    obj/webrtc/modules/video_coding/libwebrtc_h264.a $
+    obj/webrtc/modules/video_coding/libwebrtc_i420.a $
+    obj/webrtc/modules/video_coding/libwebrtc_vp8.a $
+    obj/webrtc/modules/video_coding/libwebrtc_vp9.a $
+    obj/webrtc/modules/video_processing/denoiser_filter.stamp $
+    obj/webrtc/modules/video_processing/libvideo_processing.a $
+    obj/webrtc/modules/video_processing/libvideo_processing_sse2.a $
+    obj/webrtc/ortc/libortc.a $
+    obj/webrtc/p2p/libstunprober.a $
+    obj/webrtc/p2p/p2p.stamp $
+    obj/webrtc/p2p/librtc_p2p.a $
+    obj/webrtc/pc/libcreate_pc_factory.a $
+    obj/webrtc/pc/libjingle_peerconnection.stamp $
+    obj/webrtc/pc/pc.stamp $
+    obj/webrtc/pc/libpeerconnection.a $
+    obj/webrtc/pc/rtc_pc.stamp $
+    obj/webrtc/pc/librtc_pc_base.a $
+    obj/webrtc/rtc_base/base.stamp $
+    obj/webrtc/rtc_base/compile_assert_c.stamp $
+    obj/webrtc/rtc_base/gtest_prod.stamp $
+    obj/webrtc/rtc_base/protobuf_utils.stamp $
+    obj/webrtc/rtc_base/librtc_base.a $
+    obj/webrtc/rtc_base/librtc_base_approved.a $
+    obj/webrtc/rtc_base/rtc_base_tests_utils.stamp $
+    obj/webrtc/rtc_base/rtc_json.stamp $
+    obj/webrtc/rtc_base/librtc_numerics.a $
+    obj/webrtc/rtc_base/rtc_task_queue.stamp $
+    obj/webrtc/rtc_base/rtc_task_queue_api.stamp $
+    obj/webrtc/rtc_base/rtc_task_queue_impl.stamp $
+    obj/webrtc/rtc_base/libsequenced_task_checker.a $
+    obj/webrtc/rtc_base/libweak_ptr.a $
+    obj/webrtc/rtc_tools/libchart_proto.a $
+    obj/webrtc/rtc_tools/chart_proto_gen.stamp $
+    obj/webrtc/rtc_tools/libcommand_line_parser.a $
+    obj/webrtc/rtc_tools/libevent_log_visualizer_utils.a $
+    ./force_mic_volume_max $
+    ./frame_analyzer $
+    obj/webrtc/rtc_tools/libframe_editing_lib.a $
+    ./frame_editor $
+    ./psnr_ssim_analyzer $
+    ./reference_less_video_analysis $
+    obj/webrtc/rtc_tools/libreference_less_video_analysis_lib.a $
+    ./rgba_to_i420_converter $
+    obj/webrtc/rtc_tools/rtc_tools.stamp $
+    obj/webrtc/rtc_tools/libvideo_quality_analysis.a $
+    obj/webrtc/sdk/sdk.stamp $
+    obj/webrtc/stats/librtc_stats.a $
+    obj/webrtc/stats/rtc_stats_test_utils.stamp $
+    obj/webrtc/stats/stats.stamp $
+    obj/webrtc/system_wrappers/asm_defines.stamp $
+    obj/webrtc/system_wrappers/cpu_features_api.stamp $
+    obj/webrtc/system_wrappers/libcpu_features_linux.a $
+    obj/webrtc/system_wrappers/field_trial_api.stamp $
+    obj/webrtc/system_wrappers/libfield_trial_default.a $
+    obj/webrtc/system_wrappers/metrics_api.stamp $
+    obj/webrtc/system_wrappers/libmetrics_default.a $
+    obj/webrtc/system_wrappers/libsystem_wrappers.a $
+    obj/webrtc/system_wrappers/system_wrappers_default.stamp $
+    obj/webrtc/test/audio_codec_mocks.stamp $
+    obj/webrtc/test/direct_transport.stamp $
+    obj/webrtc/test/fake_audio_device.stamp $
+    obj/webrtc/test/field_trial.stamp $
+    obj/webrtc/test/fileutils.stamp $
+    obj/webrtc/test/fileutils_unittests.stamp $
+    obj/webrtc/test/rtp_test_utils.stamp $
+    obj/webrtc/test/run_test.stamp $
+    obj/webrtc/test/run_test_generic.stamp $
+    obj/webrtc/test/run_test_interface.stamp $
+    obj/webrtc/test/single_threaded_task_queue.stamp $
+    obj/webrtc/test/test.stamp $
+    obj/webrtc/test/test_common.stamp $
+    obj/webrtc/test/test_main.stamp $
+    obj/webrtc/test/test_renderer.stamp $
+    obj/webrtc/test/test_renderer_generic.stamp $
+    obj/webrtc/test/test_support.stamp $
+    obj/webrtc/test/test_support_test_output.stamp $
+    ./test_support_unittests $
+    obj/webrtc/test/video_test_common.stamp $
+    obj/webrtc/test/video_test_support.stamp $
+    obj/webrtc/video/libvideo.a $
+    obj/webrtc/voice_engine/libaudio_coder.a $
+    obj/webrtc/voice_engine/libaudio_level.a $
+    obj/webrtc/voice_engine/libfile_player.a $
+    obj/webrtc/voice_engine/libfile_recorder.a $
+    obj/webrtc/voice_engine/libvoice_engine.a
+
+default default

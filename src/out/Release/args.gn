@@ -1,0 +1,5 @@
+is_debug = false
+use_custom_libcxx = false
+rtc_use_h264 = true
+ffmpeg_branding = "Chrome"
+rtc_include_tests = false

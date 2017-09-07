@@ -1,0 +1,33 @@
+defines = -DRTC_USE_OPENMAX_DL -DV8_DEPRECATION_WARNINGS -DUSE_UDEV -DUSE_AURA=1 -DUSE_PANGO=1 -DUSE_CAIRO=1 -DUSE_GLIB=1 -DUSE_NSS_CERTS=1 -DUSE_X11=1 -DFULL_SAFE_BROWSING -DSAFE_BROWSING_CSD -DSAFE_BROWSING_DB_LOCAL -DCHROMIUM_BUILD -DFIELDTRIAL_TESTING_ENABLED -DCR_CLANG_REVISION=\"310694-2\" -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNDEBUG -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -DWEBRTC_ENABLE_PROTOBUF=1 -DWEBRTC_INCLUDE_INTERNAL_AUDIO_DEVICE -DHAVE_SCTP -DWEBRTC_NON_STATIC_TRACE_EVENT_HANDLERS=0 -DWEBRTC_POSIX -DWEBRTC_LINUX
+include_dirs = -I../.. -Igen -I../../webrtc/common_audio/resampler/include -I../../webrtc/common_audio/signal_processing/include -I../../webrtc/common_audio/vad/include -I../../third_party/openmax_dl
+cflags = -fno-strict-aliasing --param=ssp-buffer-size=4 -fstack-protector -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -funwind-tables -fPIC -pipe -B../../third_party/binutils/Linux_x64/Release/bin -pthread -fcolor-diagnostics -m64 -march=x86-64 -Wall -Werror -Wextra -Wno-missing-field-initializers -Wno-unused-parameter -Wno-c++11-narrowing -Wno-covered-switch-default -Wno-unneeded-internal-declaration -Wno-inconsistent-missing-override -Wno-undefined-var-template -Wno-nonportable-include-path -Wno-address-of-packed-member -Wno-unused-lambda-capture -Wno-user-defined-warnings -Wno-enum-compare-switch -O2 -fno-ident -fdata-sections -ffunction-sections -fomit-frame-pointer -g0 -fvisibility=hidden -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -Wno-strict-overflow -Wc++11-narrowing -Wimplicit-fallthrough -Wthread-safety -Winconsistent-missing-override -Wundef -Wunused-lambda-capture
+cflags_cc = -std=gnu++11 -fno-rtti --sysroot=../../build/linux/debian_jessie_amd64-sysroot -fno-exceptions -fvisibility-inlines-hidden -Wnon-virtual-dtor -Woverloaded-virtual
+label_name = common_audio
+target_out_dir = obj/webrtc/common_audio
+target_output_name = libcommon_audio
+
+build obj/webrtc/common_audio/common_audio/audio_converter.o: cxx ../../webrtc/common_audio/audio_converter.cc
+build obj/webrtc/common_audio/common_audio/audio_ring_buffer.o: cxx ../../webrtc/common_audio/audio_ring_buffer.cc
+build obj/webrtc/common_audio/common_audio/audio_util.o: cxx ../../webrtc/common_audio/audio_util.cc
+build obj/webrtc/common_audio/common_audio/blocker.o: cxx ../../webrtc/common_audio/blocker.cc
+build obj/webrtc/common_audio/common_audio/channel_buffer.o: cxx ../../webrtc/common_audio/channel_buffer.cc
+build obj/webrtc/common_audio/common_audio/fir_filter.o: cxx ../../webrtc/common_audio/fir_filter.cc
+build obj/webrtc/common_audio/common_audio/lapped_transform.o: cxx ../../webrtc/common_audio/lapped_transform.cc
+build obj/webrtc/common_audio/common_audio/real_fourier.o: cxx ../../webrtc/common_audio/real_fourier.cc
+build obj/webrtc/common_audio/common_audio/real_fourier_ooura.o: cxx ../../webrtc/common_audio/real_fourier_ooura.cc
+build obj/webrtc/common_audio/common_audio/push_resampler.o: cxx ../../webrtc/common_audio/resampler/push_resampler.cc
+build obj/webrtc/common_audio/common_audio/push_sinc_resampler.o: cxx ../../webrtc/common_audio/resampler/push_sinc_resampler.cc
+build obj/webrtc/common_audio/common_audio/resampler.o: cxx ../../webrtc/common_audio/resampler/resampler.cc
+build obj/webrtc/common_audio/common_audio/sinc_resampler.o: cxx ../../webrtc/common_audio/resampler/sinc_resampler.cc
+build obj/webrtc/common_audio/common_audio/smoothing_filter.o: cxx ../../webrtc/common_audio/smoothing_filter.cc
+build obj/webrtc/common_audio/common_audio/sparse_fir_filter.o: cxx ../../webrtc/common_audio/sparse_fir_filter.cc
+build obj/webrtc/common_audio/common_audio/vad.o: cxx ../../webrtc/common_audio/vad/vad.cc
+build obj/webrtc/common_audio/common_audio/wav_file.o: cxx ../../webrtc/common_audio/wav_file.cc
+build obj/webrtc/common_audio/common_audio/wav_header.o: cxx ../../webrtc/common_audio/wav_header.cc
+build obj/webrtc/common_audio/common_audio/window_generator.o: cxx ../../webrtc/common_audio/window_generator.cc
+build obj/webrtc/common_audio/common_audio/real_fourier_openmax.o: cxx ../../webrtc/common_audio/real_fourier_openmax.cc
+
+build obj/webrtc/common_audio/libcommon_audio.a: alink obj/webrtc/common_audio/common_audio/audio_converter.o obj/webrtc/common_audio/common_audio/audio_ring_buffer.o obj/webrtc/common_audio/common_audio/audio_util.o obj/webrtc/common_audio/common_audio/blocker.o obj/webrtc/common_audio/common_audio/channel_buffer.o obj/webrtc/common_audio/common_audio/fir_filter.o obj/webrtc/common_audio/common_audio/lapped_transform.o obj/webrtc/common_audio/common_audio/real_fourier.o obj/webrtc/common_audio/common_audio/real_fourier_ooura.o obj/webrtc/common_audio/common_audio/push_resampler.o obj/webrtc/common_audio/common_audio/push_sinc_resampler.o obj/webrtc/common_audio/common_audio/resampler.o obj/webrtc/common_audio/common_audio/sinc_resampler.o obj/webrtc/common_audio/common_audio/smoothing_filter.o obj/webrtc/common_audio/common_audio/sparse_fir_filter.o obj/webrtc/common_audio/common_audio/vad.o obj/webrtc/common_audio/common_audio/wav_file.o obj/webrtc/common_audio/common_audio/wav_header.o obj/webrtc/common_audio/common_audio/window_generator.o obj/webrtc/common_audio/common_audio/real_fourier_openmax.o || obj/webrtc/common_audio/common_audio_c.stamp obj/webrtc/common_audio/sinc_resampler.stamp obj/webrtc/libwebrtc_common.a obj/webrtc/rtc_base/gtest_prod.stamp obj/webrtc/rtc_base/librtc_base_approved.a obj/webrtc/system_wrappers/libsystem_wrappers.a obj/third_party/openmax_dl/dl/libdl.a obj/webrtc/common_audio/libcommon_audio_sse2.a obj/webrtc/common_audio/common_audio_c_arm_asm.stamp obj/webrtc/common_audio/common_audio_cc.stamp obj/webrtc/system_wrappers/cpu_features_api.stamp obj/webrtc/system_wrappers/field_trial_api.stamp obj/webrtc/system_wrappers/metrics_api.stamp obj/webrtc/system_wrappers/libcpu_features_linux.a obj/webrtc/rtc_base/compile_assert_c.stamp
+  arflags =
+  output_extension = .a
+  output_dir = obj/webrtc/common_audio

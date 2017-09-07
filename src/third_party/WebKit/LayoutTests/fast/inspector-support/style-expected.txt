@@ -1,0 +1,28 @@
+CONSOLE WARNING: line 15: document.getMatchedCSSRules() is deprecated and will be removed in M63, around December 2017. See https://www.chromestatus.com/features/4606972603138048 for more details.
+Note that background is buggy right now!
+Test
+background-image: initial
+background-position-x: initial
+background-position-y: initial
+background-size: initial
+background-repeat-x: initial
+background-repeat-y: initial
+background-attachment: initial
+background-origin: initial
+background-clip: initial
+background-color: purple
+margin-top: 1em
+margin-right: 1em
+margin-bottom: 1em
+margin-left: 1em
+color: white
+font-style: normal
+font-variant-caps: normal
+font-variant-ligatures: normal
+font-variant-numeric: normal
+font-weight: normal
+font-stretch: normal
+font-size: 24px
+line-height: normal
+font-family: "Lucida Grande"
+

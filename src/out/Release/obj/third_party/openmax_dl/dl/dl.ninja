@@ -1,0 +1,40 @@
+defines = -DBIG_FFT_TABLE -DV8_DEPRECATION_WARNINGS -DUSE_UDEV -DUSE_AURA=1 -DUSE_PANGO=1 -DUSE_CAIRO=1 -DUSE_GLIB=1 -DUSE_NSS_CERTS=1 -DUSE_X11=1 -DFULL_SAFE_BROWSING -DSAFE_BROWSING_CSD -DSAFE_BROWSING_DB_LOCAL -DCHROMIUM_BUILD -DFIELDTRIAL_TESTING_ENABLED -DCR_CLANG_REVISION=\"310694-2\" -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DNDEBUG -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+include_dirs = -I../.. -Igen -I../../third_party/openmax_dl
+cflags = -msse2 -fno-strict-aliasing --param=ssp-buffer-size=4 -fstack-protector -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -funwind-tables -fPIC -pipe -B../../third_party/binutils/Linux_x64/Release/bin -pthread -fcolor-diagnostics -m64 -march=x86-64 -O2 -fno-ident -fdata-sections -ffunction-sections -fomit-frame-pointer -g0 -fvisibility=hidden -Xclang -load -Xclang ../../third_party/llvm-build/Release+Asserts/lib/libFindBadConstructs.so -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang check-auto-raw-pointer -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Werror -Wall -Wno-unused-variable -Wno-missing-field-initializers -Wno-unused-parameter -Wno-c++11-narrowing -Wno-covered-switch-default -Wno-unneeded-internal-declaration -Wno-inconsistent-missing-override -Wno-undefined-var-template -Wno-nonportable-include-path -Wno-address-of-packed-member -Wno-unused-lambda-capture -Wno-user-defined-warnings -Wno-enum-compare-switch
+cflags_c = -std=gnu11 --sysroot=../../build/linux/debian_jessie_amd64-sysroot
+label_name = dl
+target_out_dir = obj/third_party/openmax_dl/dl
+target_output_name = libdl
+
+build obj/third_party/openmax_dl/dl/dl/armSP_FFT_F32TwiddleTable.o: cc ../../third_party/openmax_dl/dl/sp/src/armSP_FFT_F32TwiddleTable.c
+build obj/third_party/openmax_dl/dl/dl/omxSP_FFTFwd_RToCCS_F32_Sfs.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/omxSP_FFTFwd_RToCCS_F32_Sfs.c
+build obj/third_party/openmax_dl/dl/dl/omxSP_FFTGetBufSize_R_F32.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/omxSP_FFTGetBufSize_R_F32.c
+build obj/third_party/openmax_dl/dl/dl/omxSP_FFTInit_R_F32.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/omxSP_FFTInit_R_F32.c
+build obj/third_party/openmax_dl/dl/dl/omxSP_FFTInv_CCSToR_F32_Sfs.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/omxSP_FFTInv_CCSToR_F32_Sfs.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Fwd_Radix2_fs.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_CToC_FC32_Fwd_Radix2_fs.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Fwd_Radix2_ls.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_CToC_FC32_Fwd_Radix2_ls.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Fwd_Radix2_ls_sse.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_CToC_FC32_Fwd_Radix2_ls_sse.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Fwd_Radix2_ms.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_CToC_FC32_Fwd_Radix2_ms.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Fwd_Radix4_fs.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_CToC_FC32_Fwd_Radix4_fs.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Fwd_Radix4_fs_sse.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_CToC_FC32_Fwd_Radix4_fs_sse.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Fwd_Radix4_ls.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_CToC_FC32_Fwd_Radix4_ls.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Fwd_Radix4_ls_sse.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_CToC_FC32_Fwd_Radix4_ls_sse.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Fwd_Radix4_ms.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_CToC_FC32_Fwd_Radix4_ms.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Fwd_Radix4_ms_sse.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_CToC_FC32_Fwd_Radix4_ms_sse.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Inv_Radix2_fs.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_CToC_FC32_Inv_Radix2_fs.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Inv_Radix2_ls.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_CToC_FC32_Inv_Radix2_ls.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Inv_Radix2_ls_sse.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_CToC_FC32_Inv_Radix2_ls_sse.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Inv_Radix2_ms.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_CToC_FC32_Inv_Radix2_ms.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Inv_Radix4_fs.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_CToC_FC32_Inv_Radix4_fs.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Inv_Radix4_fs_sse.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_CToC_FC32_Inv_Radix4_fs_sse.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Inv_Radix4_ls.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_CToC_FC32_Inv_Radix4_ls.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Inv_Radix4_ls_sse.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_CToC_FC32_Inv_Radix4_ls_sse.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Inv_Radix4_ms.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_CToC_FC32_Inv_Radix4_ms.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Inv_Radix4_ms_sse.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_CToC_FC32_Inv_Radix4_ms_sse.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_F32_radix2_kernel.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_F32_radix2_kernel.c
+build obj/third_party/openmax_dl/dl/dl/x86SP_FFT_F32_radix4_kernel.o: cc ../../third_party/openmax_dl/dl/sp/src/x86/x86SP_FFT_F32_radix4_kernel.c
+
+build obj/third_party/openmax_dl/dl/libdl.a: alink obj/third_party/openmax_dl/dl/dl/armSP_FFT_F32TwiddleTable.o obj/third_party/openmax_dl/dl/dl/omxSP_FFTFwd_RToCCS_F32_Sfs.o obj/third_party/openmax_dl/dl/dl/omxSP_FFTGetBufSize_R_F32.o obj/third_party/openmax_dl/dl/dl/omxSP_FFTInit_R_F32.o obj/third_party/openmax_dl/dl/dl/omxSP_FFTInv_CCSToR_F32_Sfs.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Fwd_Radix2_fs.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Fwd_Radix2_ls.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Fwd_Radix2_ls_sse.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Fwd_Radix2_ms.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Fwd_Radix4_fs.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Fwd_Radix4_fs_sse.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Fwd_Radix4_ls.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Fwd_Radix4_ls_sse.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Fwd_Radix4_ms.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Fwd_Radix4_ms_sse.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Inv_Radix2_fs.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Inv_Radix2_ls.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Inv_Radix2_ls_sse.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Inv_Radix2_ms.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Inv_Radix4_fs.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Inv_Radix4_fs_sse.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Inv_Radix4_ls.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Inv_Radix4_ls_sse.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Inv_Radix4_ms.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_CToC_FC32_Inv_Radix4_ms_sse.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_F32_radix2_kernel.o obj/third_party/openmax_dl/dl/dl/x86SP_FFT_F32_radix4_kernel.o
+  arflags =
+  output_extension = .a
+  output_dir = obj/third_party/openmax_dl/dl

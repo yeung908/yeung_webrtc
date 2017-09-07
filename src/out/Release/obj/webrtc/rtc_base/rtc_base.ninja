@@ -1,0 +1,60 @@
+defines = -DV8_DEPRECATION_WARNINGS -DUSE_UDEV -DUSE_AURA=1 -DUSE_PANGO=1 -DUSE_CAIRO=1 -DUSE_GLIB=1 -DUSE_NSS_CERTS=1 -DUSE_X11=1 -DFULL_SAFE_BROWSING -DSAFE_BROWSING_CSD -DSAFE_BROWSING_DB_LOCAL -DCHROMIUM_BUILD -DFIELDTRIAL_TESTING_ENABLED -DCR_CLANG_REVISION=\"310694-2\" -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DNDEBUG -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -DWEBRTC_ENABLE_PROTOBUF=1 -DWEBRTC_INCLUDE_INTERNAL_AUDIO_DEVICE -DHAVE_SCTP -DWEBRTC_NON_STATIC_TRACE_EVENT_HANDLERS=0 -DWEBRTC_POSIX -DWEBRTC_LINUX
+include_dirs = -I../.. -Igen -I../../third_party/boringssl/src/include
+cflags = -Wno-uninitialized -fno-strict-aliasing --param=ssp-buffer-size=4 -fstack-protector -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -funwind-tables -fPIC -pipe -B../../third_party/binutils/Linux_x64/Release/bin -pthread -fcolor-diagnostics -m64 -march=x86-64 -O2 -fno-ident -fdata-sections -ffunction-sections -fomit-frame-pointer -g0 -fvisibility=hidden -Xclang -load -Xclang ../../third_party/llvm-build/Release+Asserts/lib/libFindBadConstructs.so -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang check-auto-raw-pointer -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -Wno-strict-overflow -Wc++11-narrowing -Wimplicit-fallthrough -Wthread-safety -Winconsistent-missing-override -Wundef -Wunused-lambda-capture -Werror -Wall -Wno-unused-variable -Wno-missing-field-initializers -Wno-unused-parameter -Wno-c++11-narrowing -Wno-covered-switch-default -Wno-unneeded-internal-declaration -Wno-inconsistent-missing-override -Wno-undefined-var-template -Wno-nonportable-include-path -Wno-address-of-packed-member -Wno-unused-lambda-capture -Wno-user-defined-warnings -Wno-enum-compare-switch
+cflags_cc = -std=gnu++11 -fno-rtti --sysroot=../../build/linux/debian_jessie_amd64-sysroot -fno-exceptions -fvisibility-inlines-hidden -Wnon-virtual-dtor -Woverloaded-virtual
+label_name = rtc_base
+target_out_dir = obj/webrtc/rtc_base
+target_output_name = librtc_base
+
+build obj/webrtc/rtc_base/rtc_base/asyncinvoker.o: cxx ../../webrtc/rtc_base/asyncinvoker.cc
+build obj/webrtc/rtc_base/rtc_base/asyncpacketsocket.o: cxx ../../webrtc/rtc_base/asyncpacketsocket.cc
+build obj/webrtc/rtc_base/rtc_base/asyncresolverinterface.o: cxx ../../webrtc/rtc_base/asyncresolverinterface.cc
+build obj/webrtc/rtc_base/rtc_base/asyncsocket.o: cxx ../../webrtc/rtc_base/asyncsocket.cc
+build obj/webrtc/rtc_base/rtc_base/asynctcpsocket.o: cxx ../../webrtc/rtc_base/asynctcpsocket.cc
+build obj/webrtc/rtc_base/rtc_base/asyncudpsocket.o: cxx ../../webrtc/rtc_base/asyncudpsocket.cc
+build obj/webrtc/rtc_base/rtc_base/crc32.o: cxx ../../webrtc/rtc_base/crc32.cc
+build obj/webrtc/rtc_base/rtc_base/cryptstring.o: cxx ../../webrtc/rtc_base/cryptstring.cc
+build obj/webrtc/rtc_base/rtc_base/filerotatingstream.o: cxx ../../webrtc/rtc_base/filerotatingstream.cc
+build obj/webrtc/rtc_base/rtc_base/fileutils.o: cxx ../../webrtc/rtc_base/fileutils.cc
+build obj/webrtc/rtc_base/rtc_base/helpers.o: cxx ../../webrtc/rtc_base/helpers.cc
+build obj/webrtc/rtc_base/rtc_base/httpbase.o: cxx ../../webrtc/rtc_base/httpbase.cc
+build obj/webrtc/rtc_base/rtc_base/httpcommon.o: cxx ../../webrtc/rtc_base/httpcommon.cc
+build obj/webrtc/rtc_base/rtc_base/ipaddress.o: cxx ../../webrtc/rtc_base/ipaddress.cc
+build obj/webrtc/rtc_base/rtc_base/messagedigest.o: cxx ../../webrtc/rtc_base/messagedigest.cc
+build obj/webrtc/rtc_base/rtc_base/messagehandler.o: cxx ../../webrtc/rtc_base/messagehandler.cc
+build obj/webrtc/rtc_base/rtc_base/messagequeue.o: cxx ../../webrtc/rtc_base/messagequeue.cc
+build obj/webrtc/rtc_base/rtc_base/nethelpers.o: cxx ../../webrtc/rtc_base/nethelpers.cc
+build obj/webrtc/rtc_base/rtc_base/network.o: cxx ../../webrtc/rtc_base/network.cc
+build obj/webrtc/rtc_base/rtc_base/networkmonitor.o: cxx ../../webrtc/rtc_base/networkmonitor.cc
+build obj/webrtc/rtc_base/rtc_base/nullsocketserver.o: cxx ../../webrtc/rtc_base/nullsocketserver.cc
+build obj/webrtc/rtc_base/rtc_base/openssladapter.o: cxx ../../webrtc/rtc_base/openssladapter.cc
+build obj/webrtc/rtc_base/rtc_base/openssldigest.o: cxx ../../webrtc/rtc_base/openssldigest.cc
+build obj/webrtc/rtc_base/rtc_base/opensslidentity.o: cxx ../../webrtc/rtc_base/opensslidentity.cc
+build obj/webrtc/rtc_base/rtc_base/opensslstreamadapter.o: cxx ../../webrtc/rtc_base/opensslstreamadapter.cc
+build obj/webrtc/rtc_base/rtc_base/physicalsocketserver.o: cxx ../../webrtc/rtc_base/physicalsocketserver.cc
+build obj/webrtc/rtc_base/rtc_base/proxyinfo.o: cxx ../../webrtc/rtc_base/proxyinfo.cc
+build obj/webrtc/rtc_base/rtc_base/ratelimiter.o: cxx ../../webrtc/rtc_base/ratelimiter.cc
+build obj/webrtc/rtc_base/rtc_base/rtccertificate.o: cxx ../../webrtc/rtc_base/rtccertificate.cc
+build obj/webrtc/rtc_base/rtc_base/rtccertificategenerator.o: cxx ../../webrtc/rtc_base/rtccertificategenerator.cc
+build obj/webrtc/rtc_base/rtc_base/signalthread.o: cxx ../../webrtc/rtc_base/signalthread.cc
+build obj/webrtc/rtc_base/rtc_base/sigslot.o: cxx ../../webrtc/rtc_base/sigslot.cc
+build obj/webrtc/rtc_base/rtc_base/socketadapters.o: cxx ../../webrtc/rtc_base/socketadapters.cc
+build obj/webrtc/rtc_base/rtc_base/socketaddress.o: cxx ../../webrtc/rtc_base/socketaddress.cc
+build obj/webrtc/rtc_base/rtc_base/socketaddresspair.o: cxx ../../webrtc/rtc_base/socketaddresspair.cc
+build obj/webrtc/rtc_base/rtc_base/socketstream.o: cxx ../../webrtc/rtc_base/socketstream.cc
+build obj/webrtc/rtc_base/rtc_base/ssladapter.o: cxx ../../webrtc/rtc_base/ssladapter.cc
+build obj/webrtc/rtc_base/rtc_base/sslfingerprint.o: cxx ../../webrtc/rtc_base/sslfingerprint.cc
+build obj/webrtc/rtc_base/rtc_base/sslidentity.o: cxx ../../webrtc/rtc_base/sslidentity.cc
+build obj/webrtc/rtc_base/rtc_base/sslstreamadapter.o: cxx ../../webrtc/rtc_base/sslstreamadapter.cc
+build obj/webrtc/rtc_base/rtc_base/stream.o: cxx ../../webrtc/rtc_base/stream.cc
+build obj/webrtc/rtc_base/rtc_base/thread.o: cxx ../../webrtc/rtc_base/thread.cc
+build obj/webrtc/rtc_base/rtc_base/logsinks.o: cxx ../../webrtc/rtc_base/logsinks.cc
+build obj/webrtc/rtc_base/rtc_base/optionsfile.o: cxx ../../webrtc/rtc_base/optionsfile.cc
+build obj/webrtc/rtc_base/rtc_base/transformadapter.o: cxx ../../webrtc/rtc_base/transformadapter.cc
+build obj/webrtc/rtc_base/rtc_base/ifaddrs_converter.o: cxx ../../webrtc/rtc_base/ifaddrs_converter.cc
+build obj/webrtc/rtc_base/rtc_base/unixfilesystem.o: cxx ../../webrtc/rtc_base/unixfilesystem.cc
+
+build obj/webrtc/rtc_base/librtc_base.a: alink obj/webrtc/rtc_base/rtc_base/asyncinvoker.o obj/webrtc/rtc_base/rtc_base/asyncpacketsocket.o obj/webrtc/rtc_base/rtc_base/asyncresolverinterface.o obj/webrtc/rtc_base/rtc_base/asyncsocket.o obj/webrtc/rtc_base/rtc_base/asynctcpsocket.o obj/webrtc/rtc_base/rtc_base/asyncudpsocket.o obj/webrtc/rtc_base/rtc_base/crc32.o obj/webrtc/rtc_base/rtc_base/cryptstring.o obj/webrtc/rtc_base/rtc_base/filerotatingstream.o obj/webrtc/rtc_base/rtc_base/fileutils.o obj/webrtc/rtc_base/rtc_base/helpers.o obj/webrtc/rtc_base/rtc_base/httpbase.o obj/webrtc/rtc_base/rtc_base/httpcommon.o obj/webrtc/rtc_base/rtc_base/ipaddress.o obj/webrtc/rtc_base/rtc_base/messagedigest.o obj/webrtc/rtc_base/rtc_base/messagehandler.o obj/webrtc/rtc_base/rtc_base/messagequeue.o obj/webrtc/rtc_base/rtc_base/nethelpers.o obj/webrtc/rtc_base/rtc_base/network.o obj/webrtc/rtc_base/rtc_base/networkmonitor.o obj/webrtc/rtc_base/rtc_base/nullsocketserver.o obj/webrtc/rtc_base/rtc_base/openssladapter.o obj/webrtc/rtc_base/rtc_base/openssldigest.o obj/webrtc/rtc_base/rtc_base/opensslidentity.o obj/webrtc/rtc_base/rtc_base/opensslstreamadapter.o obj/webrtc/rtc_base/rtc_base/physicalsocketserver.o obj/webrtc/rtc_base/rtc_base/proxyinfo.o obj/webrtc/rtc_base/rtc_base/ratelimiter.o obj/webrtc/rtc_base/rtc_base/rtccertificate.o obj/webrtc/rtc_base/rtc_base/rtccertificategenerator.o obj/webrtc/rtc_base/rtc_base/signalthread.o obj/webrtc/rtc_base/rtc_base/sigslot.o obj/webrtc/rtc_base/rtc_base/socketadapters.o obj/webrtc/rtc_base/rtc_base/socketaddress.o obj/webrtc/rtc_base/rtc_base/socketaddresspair.o obj/webrtc/rtc_base/rtc_base/socketstream.o obj/webrtc/rtc_base/rtc_base/ssladapter.o obj/webrtc/rtc_base/rtc_base/sslfingerprint.o obj/webrtc/rtc_base/rtc_base/sslidentity.o obj/webrtc/rtc_base/rtc_base/sslstreamadapter.o obj/webrtc/rtc_base/rtc_base/stream.o obj/webrtc/rtc_base/rtc_base/thread.o obj/webrtc/rtc_base/rtc_base/logsinks.o obj/webrtc/rtc_base/rtc_base/optionsfile.o obj/webrtc/rtc_base/rtc_base/transformadapter.o obj/webrtc/rtc_base/rtc_base/ifaddrs_converter.o obj/webrtc/rtc_base/rtc_base/unixfilesystem.o || obj/webrtc/rtc_base/librtc_base_approved.a obj/webrtc/libwebrtc_common.a obj/third_party/boringssl/libboringssl.a obj/third_party/boringssl/boringssl_asm.stamp
+  arflags =
+  output_extension = .a
+  output_dir = obj/webrtc/rtc_base

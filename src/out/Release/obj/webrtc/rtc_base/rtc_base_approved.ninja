@@ -1,0 +1,42 @@
+defines = -DV8_DEPRECATION_WARNINGS -DUSE_UDEV -DUSE_AURA=1 -DUSE_PANGO=1 -DUSE_CAIRO=1 -DUSE_GLIB=1 -DUSE_NSS_CERTS=1 -DUSE_X11=1 -DFULL_SAFE_BROWSING -DSAFE_BROWSING_CSD -DSAFE_BROWSING_DB_LOCAL -DCHROMIUM_BUILD -DFIELDTRIAL_TESTING_ENABLED -DCR_CLANG_REVISION=\"310694-2\" -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNDEBUG -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -DWEBRTC_ENABLE_PROTOBUF=1 -DWEBRTC_INCLUDE_INTERNAL_AUDIO_DEVICE -DHAVE_SCTP -DWEBRTC_NON_STATIC_TRACE_EVENT_HANDLERS=0 -DWEBRTC_POSIX -DWEBRTC_LINUX
+include_dirs = -I../.. -Igen
+cflags = -fno-strict-aliasing --param=ssp-buffer-size=4 -fstack-protector -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -funwind-tables -fPIC -pipe -B../../third_party/binutils/Linux_x64/Release/bin -pthread -fcolor-diagnostics -m64 -march=x86-64 -Wall -Werror -Wextra -Wno-missing-field-initializers -Wno-unused-parameter -Wno-c++11-narrowing -Wno-covered-switch-default -Wno-unneeded-internal-declaration -Wno-inconsistent-missing-override -Wno-undefined-var-template -Wno-nonportable-include-path -Wno-address-of-packed-member -Wno-unused-lambda-capture -Wno-user-defined-warnings -Wno-enum-compare-switch -O2 -fno-ident -fdata-sections -ffunction-sections -fomit-frame-pointer -g0 -fvisibility=hidden -Xclang -load -Xclang ../../third_party/llvm-build/Release+Asserts/lib/libFindBadConstructs.so -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang check-auto-raw-pointer -Xclang -plugin-arg-find-bad-constructs -Xclang check-ipc -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -Wno-strict-overflow -Wc++11-narrowing -Wimplicit-fallthrough -Wthread-safety -Winconsistent-missing-override -Wundef -Wunused-lambda-capture
+cflags_cc = -std=gnu++11 -fno-rtti --sysroot=../../build/linux/debian_jessie_amd64-sysroot -fno-exceptions -fvisibility-inlines-hidden -Wnon-virtual-dtor -Woverloaded-virtual
+label_name = rtc_base_approved
+target_out_dir = obj/webrtc/rtc_base
+target_output_name = librtc_base_approved
+
+build obj/webrtc/rtc_base/rtc_base_approved/base64.o: cxx ../../webrtc/rtc_base/base64.cc
+build obj/webrtc/rtc_base/rtc_base_approved/bitbuffer.o: cxx ../../webrtc/rtc_base/bitbuffer.cc
+build obj/webrtc/rtc_base/rtc_base_approved/bufferqueue.o: cxx ../../webrtc/rtc_base/bufferqueue.cc
+build obj/webrtc/rtc_base/rtc_base_approved/bytebuffer.o: cxx ../../webrtc/rtc_base/bytebuffer.cc
+build obj/webrtc/rtc_base/rtc_base_approved/checks.o: cxx ../../webrtc/rtc_base/checks.cc
+build obj/webrtc/rtc_base/rtc_base_approved/copyonwritebuffer.o: cxx ../../webrtc/rtc_base/copyonwritebuffer.cc
+build obj/webrtc/rtc_base/rtc_base_approved/criticalsection.o: cxx ../../webrtc/rtc_base/criticalsection.cc
+build obj/webrtc/rtc_base/rtc_base_approved/event.o: cxx ../../webrtc/rtc_base/event.cc
+build obj/webrtc/rtc_base/rtc_base_approved/event_tracer.o: cxx ../../webrtc/rtc_base/event_tracer.cc
+build obj/webrtc/rtc_base/rtc_base_approved/file.o: cxx ../../webrtc/rtc_base/file.cc
+build obj/webrtc/rtc_base/rtc_base_approved/flags.o: cxx ../../webrtc/rtc_base/flags.cc
+build obj/webrtc/rtc_base/rtc_base_approved/location.o: cxx ../../webrtc/rtc_base/location.cc
+build obj/webrtc/rtc_base/rtc_base_approved/optional.o: cxx ../../webrtc/rtc_base/optional.cc
+build obj/webrtc/rtc_base/rtc_base_approved/pathutils.o: cxx ../../webrtc/rtc_base/pathutils.cc
+build obj/webrtc/rtc_base/rtc_base_approved/platform_file.o: cxx ../../webrtc/rtc_base/platform_file.cc
+build obj/webrtc/rtc_base/rtc_base_approved/platform_thread.o: cxx ../../webrtc/rtc_base/platform_thread.cc
+build obj/webrtc/rtc_base/rtc_base_approved/race_checker.o: cxx ../../webrtc/rtc_base/race_checker.cc
+build obj/webrtc/rtc_base/rtc_base_approved/random.o: cxx ../../webrtc/rtc_base/random.cc
+build obj/webrtc/rtc_base/rtc_base_approved/rate_limiter.o: cxx ../../webrtc/rtc_base/rate_limiter.cc
+build obj/webrtc/rtc_base/rtc_base_approved/rate_statistics.o: cxx ../../webrtc/rtc_base/rate_statistics.cc
+build obj/webrtc/rtc_base/rtc_base_approved/ratetracker.o: cxx ../../webrtc/rtc_base/ratetracker.cc
+build obj/webrtc/rtc_base/rtc_base_approved/string_to_number.o: cxx ../../webrtc/rtc_base/string_to_number.cc
+build obj/webrtc/rtc_base/rtc_base_approved/stringencode.o: cxx ../../webrtc/rtc_base/stringencode.cc
+build obj/webrtc/rtc_base/rtc_base_approved/stringutils.o: cxx ../../webrtc/rtc_base/stringutils.cc
+build obj/webrtc/rtc_base/rtc_base_approved/thread_checker_impl.o: cxx ../../webrtc/rtc_base/thread_checker_impl.cc
+build obj/webrtc/rtc_base/rtc_base_approved/timestampaligner.o: cxx ../../webrtc/rtc_base/timestampaligner.cc
+build obj/webrtc/rtc_base/rtc_base_approved/timeutils.o: cxx ../../webrtc/rtc_base/timeutils.cc
+build obj/webrtc/rtc_base/rtc_base_approved/file_posix.o: cxx ../../webrtc/rtc_base/file_posix.cc
+build obj/webrtc/rtc_base/rtc_base_approved/logging.o: cxx ../../webrtc/rtc_base/logging.cc
+
+build obj/webrtc/rtc_base/librtc_base_approved.a: alink obj/webrtc/rtc_base/rtc_base_approved/base64.o obj/webrtc/rtc_base/rtc_base_approved/bitbuffer.o obj/webrtc/rtc_base/rtc_base_approved/bufferqueue.o obj/webrtc/rtc_base/rtc_base_approved/bytebuffer.o obj/webrtc/rtc_base/rtc_base_approved/checks.o obj/webrtc/rtc_base/rtc_base_approved/copyonwritebuffer.o obj/webrtc/rtc_base/rtc_base_approved/criticalsection.o obj/webrtc/rtc_base/rtc_base_approved/event.o obj/webrtc/rtc_base/rtc_base_approved/event_tracer.o obj/webrtc/rtc_base/rtc_base_approved/file.o obj/webrtc/rtc_base/rtc_base_approved/flags.o obj/webrtc/rtc_base/rtc_base_approved/location.o obj/webrtc/rtc_base/rtc_base_approved/optional.o obj/webrtc/rtc_base/rtc_base_approved/pathutils.o obj/webrtc/rtc_base/rtc_base_approved/platform_file.o obj/webrtc/rtc_base/rtc_base_approved/platform_thread.o obj/webrtc/rtc_base/rtc_base_approved/race_checker.o obj/webrtc/rtc_base/rtc_base_approved/random.o obj/webrtc/rtc_base/rtc_base_approved/rate_limiter.o obj/webrtc/rtc_base/rtc_base_approved/rate_statistics.o obj/webrtc/rtc_base/rtc_base_approved/ratetracker.o obj/webrtc/rtc_base/rtc_base_approved/string_to_number.o obj/webrtc/rtc_base/rtc_base_approved/stringencode.o obj/webrtc/rtc_base/rtc_base_approved/stringutils.o obj/webrtc/rtc_base/rtc_base_approved/thread_checker_impl.o obj/webrtc/rtc_base/rtc_base_approved/timestampaligner.o obj/webrtc/rtc_base/rtc_base_approved/timeutils.o obj/webrtc/rtc_base/rtc_base_approved/file_posix.o obj/webrtc/rtc_base/rtc_base_approved/logging.o || obj/webrtc/libwebrtc_common.a
+  arflags =
+  output_extension = .a
+  output_dir = obj/webrtc/rtc_base
